@@ -6,6 +6,8 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "test:watch": "jest --watch --notify",
+    "test:coverage": "jest --coverage",
     "build": "tsc"
   },
   "devDependencies": {
