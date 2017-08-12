@@ -33,6 +33,13 @@ export default class Sequence<T> {
         });
     }
 
+    forEach(action: (T) => void) {
+        while (this.iterator.hasNext()) {
+            const item = this.iterator.next();
+            action(item);
+        }
+    }
+
     toArray(array?: Array<T>): Array<T> {
         const result: Array<T> = array || [];
         while (this.iterator.hasNext()) {
