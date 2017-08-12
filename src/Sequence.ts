@@ -69,4 +69,40 @@ export default class Sequence<T> {
         }
         return item;
     }
+
+    all(predicate: (T) => boolean): boolean {
+        while (this.iterator.hasNext()) {
+            const item = this.iterator.next();
+            if (!predicate(item)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    any(predicate?: (T) => boolean): boolean {
+        if (predicate == null) {
+            return this.iterator.hasNext();
+        }
+        while (this.iterator.hasNext()) {
+            const item = this.iterator.next();
+            if (predicate(item)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    none(predicate?: (T) => boolean): boolean {
+        if (predicate == null) {
+            return !this.iterator.hasNext();
+        }
+        while (this.iterator.hasNext()) {
+            const item = this.iterator.next();
+            if (predicate(item)) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
