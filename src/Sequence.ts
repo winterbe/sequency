@@ -33,12 +33,12 @@ export default class Sequence<T> {
         });
     }
 
-    toArray(): Array<T> {
-        const array: Array<T> = [];
+    toArray(array?: Array<T>): Array<T> {
+        const result: Array<T> = array || [];
         while (this.iterator.hasNext()) {
-            array.push(this.iterator.next());
+            result.push(this.iterator.next());
         }
-        return array;
+        return result;
     }
 
     first(predicate?: (T) => boolean): T {
