@@ -33,4 +33,21 @@ export default class Sequence<T> {
         }
         return array;
     }
+
+    first(predicate?: (T) => boolean): T {
+        const result = this.firstOrNull(predicate);
+        if (result == null) {
+            throw new Error("No such element");
+        }
+        return result;
+    }
+
+    firstOrNull(predicate?: (T) => boolean): T | null {
+        if (predicate != null) {
+            return this.filter(predicate).firstOrNull();
+        }
+        return this.iterator.hasNext()
+            ? this.iterator.next()
+            : null;
+    }
 }
