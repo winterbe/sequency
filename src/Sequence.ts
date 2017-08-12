@@ -26,6 +26,13 @@ export default class Sequence<T> {
         return new Sequence(new FlatMapIterator(transform, this.iterator));
     }
 
+    onEach(action: (T) => void): Sequence<T> {
+        return this.map(it => {
+            action(it);
+            return it;
+        });
+    }
+
     toArray(): Array<T> {
         const array: Array<T> = [];
         while (this.iterator.hasNext()) {
