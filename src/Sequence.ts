@@ -50,4 +50,23 @@ export default class Sequence<T> {
             ? this.iterator.next()
             : null;
     }
+
+    last(predicate?: (T) => boolean): T {
+        const result = this.lastOrNull(predicate);
+        if (result == null) {
+            throw new Error("No such element");
+        }
+        return result;
+    }
+
+    lastOrNull(predicate?: (T) => boolean): T | null {
+        if (predicate != null) {
+            return this.filter(predicate).lastOrNull();
+        }
+        let item: T | null = null;
+        while (this.iterator.hasNext()) {
+            item = this.iterator.next();
+        }
+        return item;
+    }
 }
