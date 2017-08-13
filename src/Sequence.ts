@@ -15,15 +15,7 @@ import none from "./none";
 import ArrayIterator from "./ArrayIterator";
 
 export default class Sequence<T> {
-    private readonly _iterator: SequenceIterator<T>;
-
-    constructor(iterator: SequenceIterator<T>) {
-        this._iterator = iterator;
-    }
-
-    get iterator(): SequenceIterator<T> {
-        return this._iterator;
-    }
+    constructor(readonly iterator: SequenceIterator<T>) {}
 
     map = map;
     filter = filter;
