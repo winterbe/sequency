@@ -1,4 +1,5 @@
 import SequenceIterator from "./SequenceIterator";
+import ArrayIterator from "./ArrayIterator";
 import map from "./map";
 import filter from "./filter";
 import flatMap from "./flatMap";
@@ -12,7 +13,7 @@ import last from "./last";
 import all from "./all";
 import any from "./any";
 import none from "./none";
-import ArrayIterator from "./ArrayIterator";
+import count from "./count";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -30,6 +31,7 @@ export default class Sequence<T> {
     all = all;
     any = any;
     none = none;
+    count = count;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
