@@ -31,6 +31,8 @@ export default class Sequence<T> {
     firstOrNull = firstOrNull;
     last = last;
     lastOrNull = lastOrNull;
+    find = firstOrNull;         // alias
+    findLast = lastOrNull;      // alias
     all = all;
     any = any;
     none = none;
