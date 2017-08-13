@@ -16,6 +16,7 @@ import none from "./none";
 import count from "./count";
 import distinct from "./distinct";
 import contains from "./contains";
+import indexOf from "./indexOf";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -38,6 +39,7 @@ export default class Sequence<T> {
     none = none;
     count = count;
     contains = contains;
+    indexOf = indexOf;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
