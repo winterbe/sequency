@@ -1,7 +1,7 @@
 import {asSequence} from "../src/Sequence";
 
 describe("asSequence", () => {
-    test('filter-map-toArray', () => {
+    it('filter-map-toArray', () => {
         const array = asSequence([1, 2, 3])
             .filter(it => it > 1)
             .map(it => `num ${it}`)
