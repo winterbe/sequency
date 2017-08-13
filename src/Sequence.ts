@@ -14,6 +14,7 @@ import all from "./all";
 import any from "./any";
 import none from "./none";
 import count from "./count";
+import distinct from "./distinct";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -21,6 +22,7 @@ export default class Sequence<T> {
     map = map;
     filter = filter;
     flatMap = flatMap;
+    distinct = distinct;
     onEach = onEach;
     forEach = forEach;
     toArray = toArray;
