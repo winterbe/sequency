@@ -1,13 +1,13 @@
-import Iterator from "./Iterator";
+import SequenceIterator from "./SequenceIterator";
 import Sequence from "./Sequence";
 
-class FilterIterator<T> implements Iterator<T> {
+class FilterIterator<T> implements SequenceIterator<T> {
     private nextItem: T | undefined;
     private done = false;
 
     constructor(
         private readonly predicate: (T) => boolean,
-        private readonly iterator: Iterator<T>
+        private readonly iterator: SequenceIterator<T>
     ) {}
 
     hasNext(): boolean {

@@ -1,4 +1,4 @@
-import Iterator from "./Iterator";
+import SequenceIterator from "./SequenceIterator";
 import map from "./map";
 import filter from "./filter";
 import flatMap from "./flatMap";
@@ -14,13 +14,13 @@ import any from "./any";
 import none from "./none";
 
 export default class Sequence<T> {
-    private readonly _iterator: Iterator<T>;
+    private readonly _iterator: SequenceIterator<T>;
 
-    constructor(iterator: Iterator<T>) {
+    constructor(iterator: SequenceIterator<T>) {
         this._iterator = iterator;
     }
 
-    get iterator(): Iterator<T> {
+    get iterator(): SequenceIterator<T> {
         return this._iterator;
     }
 

@@ -1,12 +1,12 @@
-import Iterator from "./Iterator";
+import SequenceIterator from "./SequenceIterator";
 import Sequence from "./Sequence";
 
-class FlatMapIterator<S, T> implements Iterator<T> {
-    private current: Iterator<T> | undefined;
+class FlatMapIterator<S, T> implements SequenceIterator<T> {
+    private current: SequenceIterator<T> | undefined;
 
     constructor(
         private readonly transform: (S) => Sequence<T>,
-        private readonly iterator: Iterator<S>
+        private readonly iterator: SequenceIterator<S>
     ) {}
 
     next(): T {

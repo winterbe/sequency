@@ -1,6 +1,6 @@
-import Iterator from "./Iterator";
+import SequenceIterator from "./SequenceIterator";
 
-export default class ArrayIterator<T> implements Iterator<T> {
+export default class ArrayIterator<T> implements SequenceIterator<T> {
     private nextIndex: number = 0;
 
     constructor(private readonly array: Array<T>) {}
