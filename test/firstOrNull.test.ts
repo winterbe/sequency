@@ -1,4 +1,4 @@
-import {sequenceOf} from "../src/index";
+import {sequenceOf} from "../src/Sequence";
 
 describe("firstOrNull", () => {
     it('should return first element of sequence', () => {

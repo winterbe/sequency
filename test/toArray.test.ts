@@ -1,4 +1,4 @@
-import {asSequence, sequenceOf} from "../src/index";
+import {asSequence, sequenceOf} from "../src/Sequence";
 
 describe("toArray", () => {
     it('should return new array', () => {

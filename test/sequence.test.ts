@@ -1,4 +1,4 @@
-import {asSequence, sequenceOf} from "../src/index";
+import {asSequence, sequenceOf} from "../src/Sequence";
 
 test('sequenceOf: filter-map-toArray', () => {
     const array = sequenceOf(1, 2, 3)

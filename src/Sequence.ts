@@ -12,6 +12,7 @@ import last from "./last";
 import all from "./all";
 import any from "./any";
 import none from "./none";
+import ArrayIterator from "./ArrayIterator";
 
 export default class Sequence<T> {
     private readonly _iterator: SequenceIterator<T>;
@@ -37,4 +38,12 @@ export default class Sequence<T> {
     all = all;
     any = any;
     none = none;
+}
+
+export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
+    return asSequence(args);
+}
+
+export function asSequence<T>(array: Array<T>): Sequence<T> {
+    return new Sequence<T>(new ArrayIterator<T>(array));
 }

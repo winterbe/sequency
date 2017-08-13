@@ -1,4 +1,4 @@
-import {sequenceOf} from "../src/index";
+import {sequenceOf} from "../src/Sequence";
 
 test('map', () => {
     const array = sequenceOf(1, 2, 3)

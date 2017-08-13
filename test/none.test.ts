@@ -1,4 +1,4 @@
-import {sequenceOf} from "../src/index";
+import {sequenceOf} from "../src/Sequence";
 
 describe("none", () => {
     it('should return false', () => {

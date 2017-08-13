@@ -1,7 +1,7 @@
 {
   "name": "sequence",
   "version": "0.1.0",
-  "main": "src/index.ts",
+  "main": "src/Sequence.ts",
   "author": "Benjamin Winterberg",
   "license": "MIT",
   "scripts": {
@@ -21,7 +21,7 @@
       "js"
     ],
     "transform": {
-      "^.+\\.ts$": "<rootDir>/test/preprocessor.js"
+      "^.+\\.ts$": "<rootDir>/preprocessor.js"
     },
     "testMatch": [
       "**/test/*.ts"

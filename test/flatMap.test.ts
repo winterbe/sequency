@@ -1,4 +1,4 @@
-import {asSequence, sequenceOf} from "../src/index";
+import {asSequence, sequenceOf} from "../src/Sequence";
 
 test('flatMap', () => {
     const array = sequenceOf([1, 2], [3, 4], [5, 6])
