@@ -1,6 +1,7 @@
 import Iterator from "./Iterator";
+import Sequence from "./Sequence";
 
-export default class MapIterator<S, T> implements Iterator<T> {
+class MapIterator<S, T> implements Iterator<T> {
     constructor(
         private readonly transform: (S) => T,
         private readonly iterator: Iterator<S>
@@ -15,3 +16,9 @@ export default class MapIterator<S, T> implements Iterator<T> {
         return this.transform(item);
     }
 }
+
+function map<S, T>(this: Sequence<T>, transform: (T) => S): Sequence<S> {
+    return new Sequence(new MapIterator(transform, this.iterator));
+}
+
+export default map;

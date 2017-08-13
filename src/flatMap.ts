@@ -1,7 +1,7 @@
 import Iterator from "./Iterator";
 import Sequence from "./Sequence";
 
-export default class FlatMapIterator<S, T> implements Iterator<T> {
+class FlatMapIterator<S, T> implements Iterator<T> {
     private current: Iterator<T> | undefined;
 
     constructor(
@@ -36,3 +36,9 @@ export default class FlatMapIterator<S, T> implements Iterator<T> {
         }
     }
 }
+
+function flatMap<S, T>(this: Sequence<S>, transform: (S) => Sequence<T>): Sequence<T> {
+    return new Sequence(new FlatMapIterator(transform, this.iterator));
+}
+
+export default flatMap;

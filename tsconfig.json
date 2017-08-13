@@ -5,6 +5,7 @@
     "lib": ["es6"],
     "outDir": "./build",
     "sourceMap": true,
+    "noImplicitThis": true,
     "strictNullChecks": true
   },
   "include": [

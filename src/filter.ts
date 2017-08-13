@@ -1,6 +1,7 @@
 import Iterator from "./Iterator";
+import Sequence from "./Sequence";
 
-export default class FilterIterator<T> implements Iterator<T> {
+class FilterIterator<T> implements Iterator<T> {
     private nextItem: T | undefined;
     private done = false;
 
@@ -35,3 +36,9 @@ export default class FilterIterator<T> implements Iterator<T> {
         this.done = true;
     }
 }
+
+function filter<T>(this: Sequence<T>, predicate: (T) => boolean): Sequence<T> {
+    return new Sequence(new FilterIterator(predicate, this.iterator));
+}
+
+export default filter;
