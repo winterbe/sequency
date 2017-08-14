@@ -20,6 +20,8 @@ import indexOf from "./indexOf";
 import elementAt from "./elementAt";
 import elementAtOrNull from "./elementAtOrNull";
 import elementAtOrElse from "./elementAtOrElse";
+import indexOfFirst from "./indexOfFirst";
+import indexOfLast from "./indexOfLast";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -43,6 +45,8 @@ export default class Sequence<T> {
     count = count;
     contains = contains;
     indexOf = indexOf;
+    indexOfFirst = indexOfFirst;
+    indexOfLast = indexOfLast;
     elementAt = elementAt;
     elementAtOrNull = elementAtOrNull;
     elementAtOrElse = elementAtOrElse;
