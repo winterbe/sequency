@@ -1,12 +1,15 @@
 import Sequence from "./Sequence";
 import SequenceIterator from "./SequenceIterator";
 
-class DistinctIterator<T> implements SequenceIterator<T> {
-    private items: Array<T> = [];
+class DistinctByIterator<T, K> implements SequenceIterator<T> {
+    private keys: Array<K> = [];
     private nextItem: T | undefined = undefined;
     private done: boolean = false;
 
-    constructor(private readonly iterator: SequenceIterator<T>) {}
+    constructor(
+        private readonly iterator: SequenceIterator<T>,
+        private readonly selector: (item: T) => K
+    ) {}
 
     hasNext(): boolean {
         this.processNext();
@@ -26,9 +29,10 @@ class DistinctIterator<T> implements SequenceIterator<T> {
         }
         while (this.iterator.hasNext()) {
             const item = this.iterator.next();
-            if (this.items.indexOf(item) < 0) {
+            const key = this.selector(item);
+            if (this.keys.indexOf(key) < 0) {
                 this.nextItem = item;
-                this.items.push(item);
+                this.keys.push(key);
                 return;
             }
         }
@@ -36,6 +40,6 @@ class DistinctIterator<T> implements SequenceIterator<T> {
     }
 }
 
-export default function distinct<T>(this: Sequence<T>): Sequence<T> {
-    return new Sequence(new DistinctIterator(this.iterator));
+export function distinctBy<T, K>(this: Sequence<T>, selector: (item: T) => K): Sequence<T> {
+    return new Sequence(new DistinctByIterator(this.iterator, selector));
 }
