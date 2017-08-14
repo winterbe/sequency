@@ -22,23 +22,32 @@ import elementAtOrNull from "./elementAtOrNull";
 import elementAtOrElse from "./elementAtOrElse";
 import indexOfFirst from "./indexOfFirst";
 import indexOfLast from "./indexOfLast";
+import joinToString from "./joinToString";
+import mapIndexed from "./mapIndexed";
+import withIndex from "./withIndex";
+import filterIndexed from "./filterIndexed";
+import forEachIndexed from "./forEachIndexed";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
 
     map = map;
+    mapIndexed = mapIndexed;
     filter = filter;
+    filterIndexed = filterIndexed;
     flatMap = flatMap;
     distinct = distinct;
+    withIndex = withIndex;
     onEach = onEach;
     forEach = forEach;
+    forEachIndexed = forEachIndexed;
     toArray = toArray;
     first = first;
     firstOrNull = firstOrNull;
     last = last;
     lastOrNull = lastOrNull;
-    find = firstOrNull;         // alias
-    findLast = lastOrNull;      // alias
+    find = firstOrNull;
+    findLast = lastOrNull;
     all = all;
     any = any;
     none = none;
@@ -50,6 +59,8 @@ export default class Sequence<T> {
     elementAt = elementAt;
     elementAtOrNull = elementAtOrNull;
     elementAtOrElse = elementAtOrElse;
+    joinTo = joinToString;
+    joinToString = joinToString;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
