@@ -27,11 +27,13 @@ import mapIndexed from "./mapIndexed";
 import withIndex from "./withIndex";
 import filterIndexed from "./filterIndexed";
 import forEachIndexed from "./forEachIndexed";
-import {distinctBy} from "./distinctBy";
+import distinctBy from "./distinctBy";
 import drop from "./drop";
 import take from "./take";
 import single from "./single";
 import singleOrNull from "./singleOrNull";
+import filterNot from "./filterNot";
+import asIterable from "./asIterable";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -39,6 +41,7 @@ export default class Sequence<T> {
     map = map;
     mapIndexed = mapIndexed;
     filter = filter;
+    filterNot = filterNot;
     filterIndexed = filterIndexed;
     flatMap = flatMap;
     distinct = distinct;
@@ -71,6 +74,7 @@ export default class Sequence<T> {
     joinToString = joinToString;
     single = single;
     singleOrNull = singleOrNull;
+    asIterable = asIterable;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {

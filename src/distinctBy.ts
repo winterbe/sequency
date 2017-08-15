@@ -40,6 +40,6 @@ class DistinctByIterator<T, K> implements SequenceIterator<T> {
     }
 }
 
-export function distinctBy<T, K>(this: Sequence<T>, selector: (item: T) => K): Sequence<T> {
+export default function distinctBy<T, K>(this: Sequence<T>, selector: (item: T) => K): Sequence<T> {
     return new Sequence(new DistinctByIterator(this.iterator, selector));
 }

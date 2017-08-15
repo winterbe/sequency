@@ -1,20 +1,35 @@
 {
   "name": "sequence",
-  "version": "0.1.0",
-  "main": "src/Sequence.ts",
-  "author": "Benjamin Winterberg",
-  "license": "MIT",
+  "version": "0.2.0",
+  "description": "Functional sequences for lazy collection processing",
+  "main": "lib/Sequence.js",
+  "typings": "lib/Sequence.d.ts",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch --notify",
     "test:coverage": "jest --coverage",
     "build": "tsc"
   },
+  "author": "Benjamin Winterberg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winterbe/sequence.git"
+  },
+  "bugs": {
+    "url": "https://github.com/winterbe/sequence/issues"
+  },
+  "files": [
+    "lib",
+    "LICENSE"
+  ],
+  "homepage": "http://winterbe.com",
   "devDependencies": {
-    "@types/jest": "^20.0.6",
+    "@types/jest": "^20.0.7",
     "jest": "^20.0.4",
     "typescript": "^2.4.2"
   },
+  "dependencies": {},
   "jest": {
     "moduleFileExtensions": [
       "ts",
@@ -26,5 +41,14 @@
     "testMatch": [
       "**/test/*.ts"
     ]
-  }
+  },
+  "keywords": [
+    "sequence",
+    "collection",
+    "functional",
+    "processing",
+    "pipeline",
+    "stream",
+    "array"
+  ]
 }

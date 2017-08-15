@@ -2,7 +2,7 @@ import {sequenceOf} from "../src/Sequence";
 
 describe("forEach", () => {
     it('should call action for each element', () => {
-        const array = [];
+        const array: Array<number> = [];
         sequenceOf(1, 2, 3)
             .forEach(it => array.push(it));
         expect(array[0]).toBe(1);

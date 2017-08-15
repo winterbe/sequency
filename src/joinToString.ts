@@ -1,6 +1,6 @@
 import Sequence from "./Sequence";
 
-interface JoinConfig<T> {
+export interface JoinConfig<T> {
     value?: string,
     separator?: string
     prefix?: string
