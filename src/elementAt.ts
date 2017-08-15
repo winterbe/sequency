@@ -7,6 +7,7 @@ function elementAt<T>(this: Sequence<T>, index: number): T {
         if (i === index) {
             return item;
         }
+        i++;
     }
     throw new Error("Index out of bounds: " + index);
 }

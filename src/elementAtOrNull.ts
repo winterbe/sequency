@@ -7,6 +7,7 @@ function elementAtOrNull<T>(this: Sequence<T>, index: number): T | null {
         if (i === index) {
             return item;
         }
+        i++;
     }
     return null;
 }

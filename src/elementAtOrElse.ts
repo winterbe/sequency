@@ -7,6 +7,7 @@ function elementAtOrElse<T>(this: Sequence<T>, index: number, defaultValue: (num
         if (i === index) {
             return item;
         }
+        i++;
     }
     return defaultValue(index);
 }
