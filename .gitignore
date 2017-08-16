@@ -3,6 +3,8 @@
 *.iml
 
 lib
+lib-umd
+docs
 coverage
 node_modules
 package-lock.json

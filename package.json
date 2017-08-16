@@ -1,16 +1,22 @@
 {
   "name": "sequence",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Functional sequences for lazy collection processing",
   "main": "lib/Sequence.js",
+  "umd:main": "lib-umd/sequence.js",
   "typings": "lib/Sequence.d.ts",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch --notify",
     "test:coverage": "jest --coverage",
-    "build": "tsc"
+    "clean": "rimraf lib && rimraf lib-umd",
+    "build:lib": "tsc",
+    "build:umd": "webpack",
+    "build": "yarn run clean && yarn run build:lib && yarn run build:umd",
+    "docs": "typedoc --out docs --target es6 --theme minimal src"
   },
   "author": "Benjamin Winterberg",
+  "homepage": "http://winterbe.com",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -21,13 +27,20 @@
   },
   "files": [
     "lib",
+    "lib-umd",
     "LICENSE"
   ],
-  "homepage": "http://winterbe.com",
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "devDependencies": {
     "@types/jest": "^20.0.7",
+    "awesome-typescript-loader": "^3.2.3",
     "jest": "^20.0.4",
-    "typescript": "^2.4.2"
+    "rimraf": "^2.6.1",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.4"
   },
   "dependencies": {},
   "jest": {

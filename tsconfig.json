@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2016",
-    "lib": ["es6"],
+    "target": "es5",
+    "lib": ["es2015"],
     "outDir": "lib",
     "declaration": true,
-    "sourceMap": false,
+    "sourceMap": true,
+    "skipLibCheck": true,
     "removeComments": false,
     "strictNullChecks": true,
     "noImplicitReturns": true,
