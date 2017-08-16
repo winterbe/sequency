@@ -33,6 +33,14 @@ import take from "./take";
 import single from "./single";
 import singleOrNull from "./singleOrNull";
 import filterNot from "./filterNot";
+import associate from "./associate";
+import associateBy from "./associateBy";
+import groupBy from "./groupBy";
+import reduce from "./reduce";
+import reduceIndexed from "./reduceIndexed";
+import fold from "./fold";
+import foldIndexed from "./foldIndexed";
+import flatten from "./flatten";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -73,6 +81,14 @@ export default class Sequence<T> {
     joinToString = joinToString;
     single = single;
     singleOrNull = singleOrNull;
+    associate = associate;
+    associateBy = associateBy;
+    groupBy = groupBy;
+    reduce = reduce;
+    reduceIndexed = reduceIndexed;
+    fold = fold;
+    foldIndexed = foldIndexed;
+    flatten = flatten;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
