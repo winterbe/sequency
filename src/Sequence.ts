@@ -33,7 +33,6 @@ import take from "./take";
 import single from "./single";
 import singleOrNull from "./singleOrNull";
 import filterNot from "./filterNot";
-import asIterable from "./asIterable";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -74,7 +73,6 @@ export default class Sequence<T> {
     joinToString = joinToString;
     single = single;
     singleOrNull = singleOrNull;
-    asIterable = asIterable;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
