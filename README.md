@@ -10,7 +10,7 @@ const array = sequenceOf(1, 2, 3)
 console.log(array); 
 ```
 
-The API of this library is heavily inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/). It's written in TypeScript and compiled to ES5-compatible JavaScript.
+This library is inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/), written in TypeScript and compiled to ES5-compatible JavaScript.
 
 ## Install
 
