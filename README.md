@@ -1,6 +1,6 @@
 # Sequence [![Travic CI](https://travis-ci.org/winterbe/sequence.svg?branch=master)](https://travis-ci.org/winterbe/sequence)
 
-> Type-safe sequences for functional collection processing in JavaScript
+> Type-safe sequences for functional collection-processing in JavaScript
 
 ```ts
 const array = sequenceOf(1, 2, 3)
