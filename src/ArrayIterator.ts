@@ -16,5 +16,4 @@ export default class ArrayIterator<T> implements SequenceIterator<T> {
             this.nextIndex++;
         }
     }
-
 }

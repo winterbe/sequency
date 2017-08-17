@@ -41,14 +41,30 @@ import reduceIndexed from "./reduceIndexed";
 import fold from "./fold";
 import foldIndexed from "./foldIndexed";
 import flatten from "./flatten";
+import sorted from "./sorted";
+import sortedBy from "./sortedBy";
+import sortedDescending from "./sortedDescending";
+import sortedByDescending from "./sortedByDescending";
+import sortedWith from "./sortedWith";
+import filterNotNull from "./filterNotNull";
+import mapNotNull from "./mapNotNull";
+import plus from "./plus";
+import minus from "./minus";
+import zip from "./zip";
+import unzip from "./unzip";
+import partition from "./partition";
+import toSet from "./toSet";
+import toMap from "./toMap";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
 
     map = map;
+    mapNotNull = mapNotNull;
     mapIndexed = mapIndexed;
     filter = filter;
     filterNot = filterNot;
+    filterNotNull = filterNotNull;
     filterIndexed = filterIndexed;
     flatMap = flatMap;
     distinct = distinct;
@@ -60,6 +76,8 @@ export default class Sequence<T> {
     forEach = forEach;
     forEachIndexed = forEachIndexed;
     toArray = toArray;
+    toSet = toSet;
+    toMap = toMap;
     first = first;
     firstOrNull = firstOrNull;
     last = last;
@@ -89,6 +107,16 @@ export default class Sequence<T> {
     fold = fold;
     foldIndexed = foldIndexed;
     flatten = flatten;
+    partition = partition;
+    sorted = sorted;
+    sortedDescending = sortedDescending;
+    sortedBy = sortedBy;
+    sortedByDescending = sortedByDescending;
+    sortedWith = sortedWith;
+    plus = plus;
+    minus = minus;
+    zip = zip;
+    unzip = unzip;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
