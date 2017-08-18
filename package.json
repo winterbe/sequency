@@ -1,7 +1,7 @@
 {
-  "name": "sequence",
-  "version": "0.4.0",
-  "description": "Functional sequences for lazy collection processing",
+  "name": "sequency",
+  "version": "0.5.0",
+  "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequence.js",
   "typings": "lib/Sequence.d.ts",
@@ -9,11 +9,11 @@
     "test": "jest",
     "test:watch": "jest --watch --notify",
     "test:coverage": "jest --coverage",
-    "clean": "rimraf lib && rimraf lib-umd",
-    "build:lib": "tsc",
-    "build:umd": "webpack",
-    "build": "yarn run clean && yarn run build:lib && yarn run build:umd",
-    "docs": "typedoc --out docs --target es6 --theme minimal src"
+    "docs": "typedoc --out docs --target es6 --theme minimal src",
+    "clean": "rimraf lib && rimraf lib-umd && rimraf docs && rimraf coverage",
+    "prebuild": "yarn run clean",
+    "build": "yarn test && tsc && webpack",
+    "prepublishOnly": "yarn run build"
   },
   "author": "Benjamin Winterberg",
   "homepage": "http://winterbe.com",
