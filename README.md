@@ -1,6 +1,6 @@
-# Sequence [![Travic CI](https://travis-ci.org/winterbe/sequence.svg?branch=master)](https://travis-ci.org/winterbe/sequence)
+# Sequency [![Travic CI](https://travis-ci.org/winterbe/sequency.svg?branch=master)](https://travis-ci.org/winterbe/sequency)
 
-> Type-safe sequences for functional collection-processing in JavaScript
+> Functional sequences for processing iterable data in JavaScript
 
 ```ts
 const array = sequenceOf(1, 2, 3)
@@ -10,11 +10,11 @@ const array = sequenceOf(1, 2, 3)
 console.log(array); 
 ```
 
-This library is inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/), written in TypeScript and compiles to ES5-compatible JavaScript.
-
 ## Install
 
-The library will soon be available on NPM. Stay tuned.
+```bash
+npm install sequency
+```
 
 ## License
 
