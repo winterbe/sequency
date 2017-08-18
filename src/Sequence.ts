@@ -54,6 +54,9 @@ import unzip from "./unzip";
 import partition from "./partition";
 import toSet from "./toSet";
 import toMap from "./toMap";
+import sum from "./sum";
+import sumBy from "./sumBy";
+import chunk from "./chunk";
 
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
@@ -75,6 +78,7 @@ export default class Sequence<T> {
     forEach = forEach;
     forEachIndexed = forEachIndexed;
     toArray = toArray;
+    toList = toArray;
     toSet = toSet;
     toMap = toMap;
     first = first;
@@ -107,6 +111,7 @@ export default class Sequence<T> {
     foldIndexed = foldIndexed;
     flatten = flatten;
     partition = partition;
+    chunk = chunk;
     sorted = sorted;
     sortedDescending = sortedDescending;
     sortedBy = sortedBy;
@@ -116,6 +121,8 @@ export default class Sequence<T> {
     minus = minus;
     zip = zip;
     unzip = unzip;
+    sum = sum;
+    sumBy = sumBy;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
