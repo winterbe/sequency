@@ -1,6 +1,6 @@
 {
   "name": "sequence",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Functional sequences for lazy collection processing",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequence.js",

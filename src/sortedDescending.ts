@@ -1,5 +1,5 @@
 import Sequence from "./Sequence";
-import ArrayIterator from "./ArrayIterator";
+import {IterableIterator} from "./SequenceIterator";
 
 function sortedDescending<T>(this: Sequence<T>): Sequence<T> {
     const sorted: Array<T> = [];
@@ -16,7 +16,7 @@ function sortedDescending<T>(this: Sequence<T>): Sequence<T> {
         }
         return 0;
     });
-    return new Sequence(new ArrayIterator(sorted));
+    return new Sequence(new IterableIterator(sorted));
 }
 
 export default sortedDescending;

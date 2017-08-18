@@ -1,5 +1,5 @@
 import Sequence from "./Sequence";
-import ArrayIterator from "./ArrayIterator";
+import {IterableIterator} from "./SequenceIterator";
 
 function sortedWith<T>(this: Sequence<T>, compare: (a: T, b: T) => number): Sequence<T> {
     const sorted: Array<T> = [];
@@ -8,7 +8,7 @@ function sortedWith<T>(this: Sequence<T>, compare: (a: T, b: T) => number): Sequ
         sorted.push(item);
     }
     sorted.sort(compare);
-    return new Sequence(new ArrayIterator(sorted));
+    return new Sequence(new IterableIterator(sorted));
 }
 
 export default sortedWith;

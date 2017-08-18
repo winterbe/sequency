@@ -3,7 +3,7 @@ import SequenceIterator from "./SequenceIterator";
 
 class DistinctByIterator<T, K> implements SequenceIterator<T> {
     private keys: Array<K> = [];
-    private nextItem: T | undefined = undefined;
+    private nextItem: T | undefined;
     private done: boolean = false;
 
     constructor(

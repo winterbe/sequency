@@ -1,5 +1,5 @@
 import Sequence from "./Sequence";
-import ArrayIterator from "./ArrayIterator";
+import {IterableIterator} from "./SequenceIterator";
 
 function sorted<T>(this: Sequence<T>): Sequence<T> {
     const sorted: Array<T> = [];
@@ -8,7 +8,7 @@ function sorted<T>(this: Sequence<T>): Sequence<T> {
         sorted.push(item);
     }
     sorted.sort();
-    return new Sequence(new ArrayIterator(sorted));
+    return new Sequence(new IterableIterator(sorted));
 }
 
 export default sorted;

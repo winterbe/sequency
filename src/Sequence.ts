@@ -1,5 +1,4 @@
-import SequenceIterator from "./SequenceIterator";
-import ArrayIterator from "./ArrayIterator";
+import SequenceIterator, {IterableIterator} from "./SequenceIterator";
 import map from "./map";
 import filter from "./filter";
 import flatMap from "./flatMap";
@@ -123,10 +122,10 @@ export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
     return asSequence(args);
 }
 
-export function emptySequence() {
+export function emptySequence<T>(): Sequence<T> {
     return asSequence([]);
 }
 
-export function asSequence<T>(array: Array<T>): Sequence<T> {
-    return new Sequence<T>(new ArrayIterator<T>(array));
+export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
+    return new Sequence<T>(new IterableIterator(iterable));
 }

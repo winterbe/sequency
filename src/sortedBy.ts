@@ -1,5 +1,5 @@
 import Sequence from "./Sequence";
-import ArrayIterator from "./ArrayIterator";
+import {IterableIterator} from "./SequenceIterator";
 
 function sortedBy<T, R>(this: Sequence<T>, selector: (value: T) => R): Sequence<T> {
     const sorted: Array<T> = [];
@@ -18,7 +18,7 @@ function sortedBy<T, R>(this: Sequence<T>, selector: (value: T) => R): Sequence<
         }
         return 0;
     });
-    return new Sequence(new ArrayIterator(sorted));
+    return new Sequence(new IterableIterator(sorted));
 }
 
 export default sortedBy;

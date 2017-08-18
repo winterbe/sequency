@@ -1,6 +1,5 @@
 import Sequence from "./Sequence";
-import SequenceIterator from "./SequenceIterator";
-import ArrayIterator from "./ArrayIterator";
+import SequenceIterator, {IterableIterator} from "./SequenceIterator";
 
 class AppendIterator<T> implements SequenceIterator<T> {
     constructor(
@@ -24,9 +23,9 @@ function plus<T>(this: Sequence<T>, data: T | Sequence<T> | Array<T>): Sequence<
     if (data instanceof Sequence) {
         return new Sequence(new AppendIterator(this.iterator, data.iterator));
     } else if (data instanceof Array) {
-        return new Sequence(new AppendIterator(this.iterator, new ArrayIterator(data)));
+        return new Sequence(new AppendIterator(this.iterator, new IterableIterator(data)));
     } else {
-        return new Sequence(new AppendIterator(this.iterator, new ArrayIterator([data])));
+        return new Sequence(new AppendIterator(this.iterator, new IterableIterator([data])));
     }
 }
 

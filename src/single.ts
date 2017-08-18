@@ -1,6 +1,6 @@
 import Sequence from "./Sequence";
 
-function single<T>(this: Sequence<T>, predicate?: (item: T) => boolean): T {
+function single<T>(this: Sequence<T>, predicate?: (value: T) => boolean): T {
     if (predicate != null) {
         return this.filter(predicate).single();
     }

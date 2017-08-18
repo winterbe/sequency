@@ -1,6 +1,6 @@
 import Sequence from "./Sequence";
 
-function none<T>(this: Sequence<T>, predicate?: (T) => boolean): boolean {
+function none<T>(this: Sequence<T>, predicate?: (value: T) => boolean): boolean {
     if (predicate == null) {
         return !this.iterator.hasNext();
     }

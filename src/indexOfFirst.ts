@@ -1,6 +1,6 @@
 import Sequence from "./Sequence";
 
-function indexOfFirst<T>(this: Sequence<T>, predicate: (T) => boolean): number {
+function indexOfFirst<T>(this: Sequence<T>, predicate: (value: T) => boolean): number {
     let index = 0;
     while (this.iterator.hasNext()) {
         const item = this.iterator.next();

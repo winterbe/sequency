@@ -1,6 +1,6 @@
 import Sequence from "./Sequence";
 
-function lastOrNull<T>(this: Sequence<T>, predicate?: (T) => boolean): T | null {
+function lastOrNull<T>(this: Sequence<T>, predicate?: (value: T) => boolean): T | null {
     if (predicate != null) {
         return this.filter(predicate).lastOrNull();
     }
