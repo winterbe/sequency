@@ -5,11 +5,12 @@
 ```js
 import {sequenceOf} from 'sequency';
 
-const array = sequenceOf(1, 2, 3)
-    .filter(it => it > 1)
-    .map(it => `num ${it}`)
+const array = sequenceOf(1, 2, 3, 4, 5)
+    .filter(num => num % 2 === 1)
+    .mapIndexed((index, num) => `odd[${index}]=${num}`)
     .toArray();
-console.log(array); 
+
+console.log(array);  // ['odd[0]=1', 'odd[1]=3', 'odd[2]=5']
 ```
 
 <p align="center">
@@ -18,7 +19,9 @@ console.log(array);
 
 ## Getting started
 
-Sequency is a type-safe functional programming library for synchronous processing of iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5 compatible JavaScript and works in all current browsers and [Node.js](http://nodejs.org/) applications.
+Sequency is a type-safe functional programming library for synchronous processing of iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5 compatible JavaScript and works in all current browsers and Node applications.
+
+Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from NPM:
 
 ```bash
 npm install sequency
@@ -28,9 +31,88 @@ npm install sequency
 yarn add sequency
 ```
 
+## How sequences works
+
+Each `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions return a new sequence, thus enabling method chaining while terminal functions return an arbitrary result.
+
+Sequences can be created with one of the following functions:
+
+```js
+import {sequenceOf, asSequence, emptySequence} from 'sequency';
+```
+
+- `sequenceOf` accepts one or many values and returns a new sequence.
+- `asSequence` accepts an iterable (e.g. an array, set or map) and returns a new sequence.
+- `emptySequence` return a new empty sequence.
+
+Sequences are lazily evaluated to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
+
 ## API documentation
 
-coming soon
+Each `Sequence` provides the following methods (detailed explanation coming soon):
+
+- `map()`
+- `mapNotNull()`
+- `mapIndexed()`
+- `filter()`
+- `filterNot()`
+- `filterNotNull()`
+- `filterIndexed()`
+- `flatMap()`
+- `distinct()`
+- `distinctBy()`
+- `withIndex()`
+- `drop()`
+- `take()`
+- `onEach()`
+- `forEach()`
+- `forEachIndexed()`
+- `toArray()`
+- `toList()`
+- `toSet()`
+- `toMap()`
+- `first()`
+- `firstOrNull()`
+- `last()`
+- `lastOrNull()`
+- `find()`
+- `findLast()`
+- `all()`
+- `any()`
+- `none()`
+- `count()`
+- `contains()`
+- `indexOf()`
+- `indexOfFirst()`
+- `indexOfLast()`
+- `elementAt()`
+- `elementAtOrNull()`
+- `elementAtOrElse()`
+- `joinTo()`
+- `joinToString()`
+- `single()`
+- `singleOrNull()`
+- `associate()`
+- `associateBy()`
+- `groupBy()`
+- `reduce()`
+- `reduceIndexed()`
+- `fold()`
+- `foldIndexed()`
+- `flatten()`
+- `partition()`
+- `chunk()`
+- `sorted()`
+- `sortedDescending()`
+- `sortedBy()`
+- `sortedByDescending()`
+- `sortedWith()`
+- `plus()`
+- `minus()`
+- `zip()`
+- `unzip()`
+- `sum()`
+- `sumBy()`
 
 ## License
 
