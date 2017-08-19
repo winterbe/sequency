@@ -5,12 +5,12 @@
 ```js
 import {sequenceOf} from 'sequency';
 
-const array = sequenceOf(1, 2, 3, 4, 5)
+const array = sequenceOf(1, 2, 3)
     .filter(num => num % 2 === 1)
     .map(num => `odd=${num}`)
     .toArray();
 
-console.log(array);  // ['odd=1', 'odd=3', 'odd=5']
+console.log(array);  // ['odd=1', 'odd=3']
 ```
 
 <p align="center">
