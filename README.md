@@ -7,10 +7,10 @@ import {sequenceOf} from 'sequency';
 
 const array = sequenceOf(1, 2, 3, 4, 5)
     .filter(num => num % 2 === 1)
-    .mapIndexed((index, num) => `odd[${index}]=${num}`)
+    .map(num => `odd=${num}`)
     .toArray();
 
-console.log(array);  // ['odd[0]=1', 'odd[1]=3', 'odd[2]=5']
+console.log(array);  // ['odd=1', 'odd=3', 'odd=5']
 ```
 
 <p align="center">
@@ -19,7 +19,7 @@ console.log(array);  // ['odd[0]=1', 'odd[1]=3', 'odd[2]=5']
 
 ## Getting started
 
-Sequency is a type-safe functional programming library for synchronous processing of iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5 compatible JavaScript and works in all current browsers and Node applications.
+Sequency is a type-safe functional programming library for synchronous processing of iterable data such as arrays, sets and maps. Sequency is written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications. [Try Sequence](https://npm.runkit.com/sequency) right in your browser.
 
 Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from NPM:
 
@@ -43,13 +43,15 @@ import {sequenceOf, asSequence, emptySequence} from 'sequency';
 
 - `sequenceOf` accepts one or many values and returns a new sequence.
 - `asSequence` accepts an iterable (e.g. an array, set or map) and returns a new sequence.
-- `emptySequence` return a new empty sequence.
+- `emptySequence` returns a new empty sequence.
 
 Sequences are lazily evaluated to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
 
 ## API documentation
 
-Each `Sequence` provides the following methods (detailed explanation coming soon):
+Sequency is inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/) and provides mostly the same API. 
+
+Each `Sequence` provides the following methods (more explanations coming soon):
 
 - `map()`
 - `mapNotNull()`
