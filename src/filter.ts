@@ -37,6 +37,12 @@ class FilterIterator<T> implements SequenceIterator<T> {
     }
 }
 
+/**
+ * Returns a new sequence consisting of all elements that match the given `predicate`.
+ *
+ * @param {(T) => boolean} predicate
+ * @returns {Sequence<T>}
+ */
 function filter<T>(this: Sequence<T>, predicate: (T) => boolean): Sequence<T> {
     return new Sequence(new FilterIterator(predicate, this.iterator));
 }

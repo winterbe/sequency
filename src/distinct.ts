@@ -36,6 +36,13 @@ class DistinctIterator<T> implements SequenceIterator<T> {
     }
 }
 
-export default function distinct<T>(this: Sequence<T>): Sequence<T> {
+/**
+ * Returns a new sequence which discards all duplicate elements.
+ *
+ * @returns {Sequence<T>}
+ */
+function distinct<T>(this: Sequence<T>): Sequence<T> {
     return new Sequence(new DistinctIterator(this.iterator));
 }
+
+export default distinct;

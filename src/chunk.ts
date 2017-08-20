@@ -1,5 +1,12 @@
 import Sequence from "./Sequence";
 
+/**
+ * Splits the elements of the sequence into arrays which length is determined by
+ * the given `chunkSize` and returns all chunks as array.
+ *
+ * @param {number} chunkSize
+ * @returns {Array<Array<T>>}
+ */
 function chunk<T>(this: Sequence<T>, chunkSize: number): Array<Array<T>> {
     if (chunkSize < 1) {
         throw new Error("chunkSize must be > 0 but is " + chunkSize);

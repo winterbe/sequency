@@ -1,6 +1,16 @@
 import Sequence from "./Sequence";
 
-function associateBy<T, K, V>(this: Sequence<T>, keySelector: (value: T) => K, valueTransform?: (value: T) => V): Map<K, V | T> {
+/**
+ * Returns a map consisting of the elements mapped by the given `keySelector`. The value
+ * can optionally be transformed into another value by specifying a `valueTransformer`.
+ *
+ * @param {(value: T) => K} keySelector
+ * @param {(value: T) => V} valueTransform
+ * @returns {Map<K, T | V>}
+ */
+function associateBy<T, K, V>(this: Sequence<T>,
+                              keySelector: (value: T) => K,
+                              valueTransform?: (value: T) => V): Map<K, V | T> {
     const result = new Map<K, V | T>();
     const transform = valueTransform != null
         ? valueTransform
