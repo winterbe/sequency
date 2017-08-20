@@ -57,6 +57,7 @@ import toMap from "./toMap";
 import sum from "./sum";
 import sumBy from "./sumBy";
 import chunk from "./chunk";
+import reverse from "./reverse";
 
 /**
  * A Sequence accepts an iterator and provides a fluent functional API consisting
@@ -81,6 +82,13 @@ export default class Sequence<T> {
     drop = drop;
     take = take;
     onEach = onEach;
+    flatten = flatten;
+    sorted = sorted;
+    sortedDescending = sortedDescending;
+    sortedBy = sortedBy;
+    sortedByDescending = sortedByDescending;
+    sortedWith = sortedWith;
+    reverse = reverse;
     forEach = forEach;
     forEachIndexed = forEachIndexed;
     toArray = toArray;
@@ -115,14 +123,8 @@ export default class Sequence<T> {
     reduceIndexed = reduceIndexed;
     fold = fold;
     foldIndexed = foldIndexed;
-    flatten = flatten;
     partition = partition;
     chunk = chunk;
-    sorted = sorted;
-    sortedDescending = sortedDescending;
-    sortedBy = sortedBy;
-    sortedByDescending = sortedByDescending;
-    sortedWith = sortedWith;
     plus = plus;
     minus = minus;
     zip = zip;

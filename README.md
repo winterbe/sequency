@@ -117,6 +117,7 @@ Each `Sequence` provides the following methods (more explanations coming soon):
 - `unzip()`
 - `sum()`
 - `sumBy()`
+- `reverse()`
 
 ## License
 
