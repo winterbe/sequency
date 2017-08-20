@@ -58,6 +58,12 @@ import sum from "./sum";
 import sumBy from "./sumBy";
 import chunk from "./chunk";
 
+/**
+ * A Sequence accepts an iterator and provides a fluent functional API consisting
+ * of various intermediate and terminal operations for processing the iterated data.
+ * The operations are evaluated lazily to avoid examining all of the input data
+ * when it's not necessary. Sequences can be iterated only once.
+ */
 export default class Sequence<T> {
     constructor(readonly iterator: SequenceIterator<T>) {}
 

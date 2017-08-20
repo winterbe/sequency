@@ -9,6 +9,8 @@
     "skipLibCheck": true,
     "removeComments": false,
     "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noImplicitUseStrict": true,
     "noImplicitThis": true,

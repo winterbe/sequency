@@ -7,7 +7,7 @@ export interface JoinConfig<T> {
     postfix?: string
     limit?: number
     truncated?: string
-    transform?: (T) => string
+    transform?: (value: T) => string
 }
 
 const defaults = {
