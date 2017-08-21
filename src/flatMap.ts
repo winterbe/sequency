@@ -37,7 +37,13 @@ class FlatMapIterator<S, T> implements SequenceIterator<T> {
     }
 }
 
-function flatMap<S, T>(this: Sequence<S>, transform: (S) => Sequence<T>): Sequence<T> {
+/**
+ * Transforms each element into a sequence of items and returns a flat single sequence of all those items.
+ *
+ * @param {(value: S) => Sequence<T>} transform
+ * @returns {Sequence<T>}
+ */
+function flatMap<S, T>(this: Sequence<S>, transform: (value: S) => Sequence<T>): Sequence<T> {
     return new Sequence(new FlatMapIterator(transform, this.iterator));
 }
 

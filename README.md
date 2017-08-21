@@ -19,9 +19,9 @@ console.log(array);  // ['odd=1', 'odd=3']
 
 ## Getting started
 
-Sequency is a type-safe functional programming library for synchronous processing of iterable data such as arrays, sets and maps. It's written in TypeScript, compiled to ES5-compatible JavaScript and works in all current browsers and Node applications.
+Sequency is a type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications.
 
-Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from NPM:
+Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from [NPM](https://github.com/winterbe/sequency):
 
 ```bash
 npm install sequency
@@ -34,6 +34,8 @@ yarn add sequency
 > Not convinced? [Try Sequency](https://npm.runkit.com/sequency) right in your browser.
 
 ## How sequences works
+
+Sequency is centered around a single class `Sequence` to process any kind of iterable data. The API is inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html). 
 
 Each `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions return a new sequence, thus enabling method chaining while terminal functions return an arbitrary result.
 
