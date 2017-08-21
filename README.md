@@ -51,75 +51,7 @@ import {sequenceOf, asSequence, emptySequence} from 'sequency';
 
 Sequences are lazily evaluated to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
 
-## API documentation
-
-Sequency is inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/) and provides mostly the same API. 
-
-Each `Sequence` provides the following methods (more explanations coming soon):
-
-- `map()`
-- `mapNotNull()`
-- `mapIndexed()`
-- `filter()`
-- `filterNot()`
-- `filterNotNull()`
-- `filterIndexed()`
-- `flatMap()`
-- `distinct()`
-- `distinctBy()`
-- `withIndex()`
-- `drop()`
-- `take()`
-- `onEach()`
-- `forEach()`
-- `forEachIndexed()`
-- `toArray()`
-- `toList()`
-- `toSet()`
-- `toMap()`
-- `first()`
-- `firstOrNull()`
-- `last()`
-- `lastOrNull()`
-- `find()`
-- `findLast()`
-- `all()`
-- `any()`
-- `none()`
-- `count()`
-- `contains()`
-- `indexOf()`
-- `indexOfFirst()`
-- `indexOfLast()`
-- `elementAt()`
-- `elementAtOrNull()`
-- `elementAtOrElse()`
-- `joinTo()`
-- `joinToString()`
-- `single()`
-- `singleOrNull()`
-- `associate()`
-- `associateBy()`
-- `groupBy()`
-- `reduce()`
-- `reduceIndexed()`
-- `fold()`
-- `foldIndexed()`
-- `flatten()`
-- `partition()`
-- `chunk()`
-- `sorted()`
-- `sortedDescending()`
-- `sortedBy()`
-- `sortedByDescending()`
-- `sortedWith()`
-- `plus()`
-- `minus()`
-- `zip()`
-- `unzip()`
-- `sum()`
-- `sumBy()`
-- `reverse()`
+## [API documentation](http://winterbe.com/sequency/)
 
 ## License
 
