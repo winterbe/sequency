@@ -9,7 +9,7 @@
     "test": "jest",
     "test:watch": "jest --watch --notify",
     "test:coverage": "jest --coverage",
-    "docs": "typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --target es6 --hideGenerator src",
+    "docs": "typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --target es6 --hideGenerator --gaID UA-48569937-1 src",
     "clean": "rimraf lib && rimraf lib-umd && rimraf docs && rimraf coverage",
     "prebuild": "yarn run clean",
     "build": "yarn test && tsc && webpack",
