@@ -51,7 +51,7 @@ import {sequenceOf, asSequence, emptySequence} from 'sequency';
 
 Sequences are lazily evaluated to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
 
-## [API documentation](http://winterbe.com/sequency/)
+## [API documentation](https://winterbe.github.io/sequency/)
 
 ## License
 
