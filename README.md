@@ -21,7 +21,7 @@ console.log(array);  // ['odd=1', 'odd=3']
 
 Sequency is a type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications.
 
-Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from [NPM](https://github.com/winterbe/sequency):
+Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from [NPM](https://www.npmjs.com/package/sequency):
 
 ```bash
 npm install sequency
