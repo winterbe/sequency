@@ -3,7 +3,7 @@
   "version": "0.6.0",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
-  "umd:main": "lib-umd/sequence.js",
+  "umd:main": "lib-umd/sequency.js",
   "typings": "lib/Sequence.d.ts",
   "scripts": {
     "test": "jest",
