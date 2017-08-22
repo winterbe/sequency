@@ -3,14 +3,14 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        'sequence': './src/Sequence.ts',
-        'sequence.min': './src/Sequence.ts'
+        'sequency': './src/Sequence.ts',
+        'sequency.min': './src/Sequence.ts'
     },
     output: {
         path: path.resolve(__dirname, 'lib-umd'),
         filename: '[name].js',
         libraryTarget: 'umd',
-        library: 'Sequence',
+        library: 'Sequency',
         umdNamedDefine: true
     },
     resolve: {

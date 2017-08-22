@@ -7,14 +7,13 @@
   "typings": "lib/Sequence.d.ts",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch --notify",
-    "test:coverage": "jest --coverage",
-    "docs": "typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --target es6 --hideGenerator --gaID UA-48569937-1 src",
-    "docs:publish": "rimraf docs && npm run docs && touch docs/.nojekyll && gh-pages -d docs -t",
-    "clean": "rimraf lib && rimraf lib-umd && rimraf docs && rimraf coverage",
-    "prebuild": "yarn run clean",
-    "build": "yarn test && tsc && webpack",
-    "prepublishOnly": "yarn run build"
+    "watch": "jest --watch --notify",
+    "coverage": "rimraf coverage && jest --coverage",
+    "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --target es6 --hideGenerator --gaID UA-48569937-1 src",
+    "docs-publish": "yarn run docs && touch docs/.nojekyll && gh-pages -d docs -t",
+    "build": "rimraf lib && rimraf lib-umd && tsc && webpack && size-limit",
+    "build-prod": "yarn test && yarn run build && yarn run docs-publish",
+    "prepublishOnly": "yarn run build-prod"
   },
   "author": "Benjamin Winterberg",
   "homepage": "http://winterbe.com",
@@ -40,6 +39,7 @@
     "gh-pages": "^1.0.0",
     "jest": "^20.0.4",
     "rimraf": "^2.6.1",
+    "size-limit": "^0.10.0",
     "typedoc": "^0.8.0",
     "typescript": "^2.4.2",
     "webpack": "^3.5.4"
@@ -57,6 +57,10 @@
       "**/test/*.ts"
     ]
   },
+  "size-limit": [{
+    "path": "lib-umd/sequency.min.js",
+    "limit": "5 KB"
+  }],
   "keywords": [
     "functional",
     "sequence",
