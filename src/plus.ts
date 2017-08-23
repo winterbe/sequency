@@ -19,6 +19,13 @@ class AppendIterator<T> implements SequenceIterator<T> {
 
 }
 
+/**
+ * Appends the given `data` to the end of the sequence and returns a new sequence. Data can either be a single element,
+ * an array of elements or a sequence of elements.
+ *
+ * @param {Sequence<T> | Array<T> | T} data
+ * @returns {Sequence<T>}
+ */
 function plus<T>(this: Sequence<T>, data: T | Sequence<T> | Array<T>): Sequence<T> {
     if (data instanceof Sequence) {
         return new Sequence(new AppendIterator(this.iterator, data.iterator));

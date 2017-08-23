@@ -1,5 +1,11 @@
 import Sequence from "./Sequence";
 
+/**
+ * Returns the zero-based index of the given `element` or -1 if the sequence does not contain the element.
+ *
+ * @param {T} element
+ * @returns {number}
+ */
 function indexOf<T>(this: Sequence<T>, element: T): number {
     let index = 0;
     while (this.iterator.hasNext()) {

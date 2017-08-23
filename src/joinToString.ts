@@ -20,6 +20,12 @@ const defaults = {
     transform: undefined
 };
 
+/**
+ * Joins all elements of the sequence into a string with the given configuration.
+ *
+ * @param {JoinConfig<T>} config
+ * @returns {string}
+ */
 function joinToString<T>(this: Sequence<T>, config: JoinConfig<T> = defaults): string {
     const {
         value = defaults.value,
