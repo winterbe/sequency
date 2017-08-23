@@ -14,7 +14,7 @@ console.log(array);  // ['odd=1', 'odd=3']
 ```
 
 <p align="center">
-<strong>★★★ If you like this project, please <a href="https://github.com/winterbe/sequency/stargazers">leave a star</a> or <a href="https://twitter.com/winterbe_">follow on Twitter</a> ★★★</strong>
+<strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a> and <a href="https://twitter.com/winterbe_">follow on Twitter</a>! Thanks. ★★★</strong>
 </p>
 
 ## Getting started
