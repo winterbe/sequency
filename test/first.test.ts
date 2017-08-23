@@ -21,4 +21,10 @@ describe("first", () => {
             .first(it => it > 2);
         expect(result).toBe(3);
     });
+
+    it('should return null if the first element is null', () => {
+        const result = sequenceOf(null)
+            .first();
+        expect(result).toBeNull();
+    });
 });

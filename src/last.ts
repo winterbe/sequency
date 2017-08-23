@@ -8,11 +8,17 @@ import Sequence from "./Sequence";
  * @returns {T}
  */
 function last<T>(this: Sequence<T>, predicate?: (value: T) => boolean): T {
-    const result = this.lastOrNull(predicate);
-    if (result == null) {
+    if (predicate != null) {
+        return this.filter(predicate).last();
+    }
+    if (!this.iterator.hasNext()) {
         throw new Error("No such element");
     }
-    return result;
+    let item: T;
+    while (this.iterator.hasNext()) {
+        item = this.iterator.next();
+    }
+    return item!;
 }
 
 export default last;

@@ -21,4 +21,10 @@ describe("last", () => {
             .last(it => it > 1);
         expect(result).toBe(3);
     });
+
+    it('should return null if the last element is null', () => {
+        const result = sequenceOf(1, 2, null)
+            .last();
+        expect(result).toBeNull();
+    });
 });

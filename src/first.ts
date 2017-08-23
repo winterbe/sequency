@@ -8,11 +8,13 @@ import Sequence from "./Sequence";
  * @returns {T}
  */
 function first<T>(this: Sequence<T>, predicate?: (T) => boolean): T {
-    const result = this.firstOrNull(predicate);
-    if (result == null) {
+    if (predicate != null) {
+        return this.filter(predicate).first();
+    }
+    if (!this.iterator.hasNext()) {
         throw new Error("No such element");
     }
-    return result;
+    return this.iterator.next();
 }
 
 export default first;
