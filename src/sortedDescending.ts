@@ -1,6 +1,11 @@
 import Sequence from "./Sequence";
 import {IterableIterator} from "./SequenceIterator";
 
+/**
+ * Returns a new sequence with all elements sorted descending in natural order.
+ *
+ * @returns {Sequence<T>}
+ */
 function sortedDescending<T>(this: Sequence<T>): Sequence<T> {
     const sorted: Array<T> = [];
     while (this.iterator.hasNext()) {

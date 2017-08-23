@@ -1,3 +1,6 @@
+/**
+ * The iterator used by `Sequence` to iterate over the underlying data.
+ */
 interface SequenceIterator<T> {
     hasNext(): boolean
     next(): T

@@ -1,6 +1,13 @@
 import Sequence from "./Sequence";
 import {IterableIterator} from "./SequenceIterator";
 
+/**
+ * Returns a new sequence with all elements sorted ascending by the value specified
+ * by the given `selector` function.
+ *
+ * @param {(value: T) => R} selector
+ * @returns {Sequence<T>}
+ */
 function sortedBy<T, R>(this: Sequence<T>, selector: (value: T) => R): Sequence<T> {
     const sorted: Array<T> = [];
     while (this.iterator.hasNext()) {

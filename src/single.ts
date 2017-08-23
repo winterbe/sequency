@@ -1,5 +1,13 @@
 import Sequence from "./Sequence";
 
+/**
+ * Returns the single element of the sequence or throws error if the sequence has more than
+ * one element or none at all. If a `predicate` is passed returns the single element matching
+ * the predicate or throws an error if more or less than one element match the predicate.
+ *
+ * @param {(value: T) => boolean} predicate
+ * @returns {T}
+ */
 function single<T>(this: Sequence<T>, predicate?: (value: T) => boolean): T {
     if (predicate != null) {
         return this.filter(predicate).single();
