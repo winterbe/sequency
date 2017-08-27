@@ -58,6 +58,7 @@ import sum from "./sum";
 import sumBy from "./sumBy";
 import chunk from "./chunk";
 import reverse from "./reverse";
+import average from "./average";
 
 /**
  * A Sequence accepts an iterator and provides a fluent functional API consisting
@@ -131,6 +132,7 @@ export default class Sequence<T> {
     unzip = unzip;
     sum = sum;
     sumBy = sumBy;
+    average = average;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
