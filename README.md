@@ -53,6 +53,10 @@ Sequences are lazily evaluated to avoid examining all of the input data when it'
 
 ## [API documentation](https://winterbe.github.io/sequency/)
 
+## Why Sequency?
+
+I've built Sequency because I'm using Kotlin for server-side code but for some reasons still use TypeScript and JavaScript for client-side browser code. I find that using the same APIs for collection processing is a huge gain in productivity for me.
+
 ## License
 
 MIT © [Benjamin Winterberg](https://twitter.com/winterbe_)
