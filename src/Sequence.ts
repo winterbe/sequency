@@ -59,6 +59,12 @@ import sumBy from "./sumBy";
 import chunk from "./chunk";
 import reverse from "./reverse";
 import average from "./average";
+import max from "./max";
+import maxBy from "./maxBy";
+import min from "./min";
+import minBy from "./minBy";
+import maxWith from "./maxWith";
+import minWith from "./minWith";
 
 /**
  * A Sequence accepts an iterator and provides a fluent functional API consisting
@@ -133,6 +139,12 @@ export default class Sequence<T> {
     sum = sum;
     sumBy = sumBy;
     average = average;
+    max = max;
+    maxBy = maxBy;
+    maxWith = maxWith;
+    min = min;
+    minBy = minBy;
+    minWith = minWith;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
