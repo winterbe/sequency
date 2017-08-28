@@ -17,21 +17,25 @@ console.log(array);  // ['odd=1', 'odd=3']
 <strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a> and <a href="https://twitter.com/winterbe_">follow on Twitter</a>! Thanks. ★★★</strong>
 </p>
 
-## Getting started
+## About Sequency
 
-Sequency is a type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications.
+Sequency is a lightweight (**2.86 KB minified, gzipped**), intensely tested (**160+ tests, 99% coverage**), type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications. The API is inspired by [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/) from the programming language [Kotlin](https://kotlinlang.org/).
+
+> Not convinced? [Try Sequency](https://npm.runkit.com/sequency) right in your browser.
+
+## Install
 
 Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from [NPM](https://www.npmjs.com/package/sequency):
 
 ```bash
-npm install sequency
-
-# or
-
-yarn add sequency
+npm install --save sequency
 ```
 
-> Not convinced? [Try Sequency](https://npm.runkit.com/sequency) right in your browser.
+You can also use Sequency via [CND](https://unpkg.com/sequency/):
+
+```html
+<script src="https://unpkg.com/sequency" crossorigin="anonymous"></script>
+```
 
 ## How sequences works
 
@@ -53,9 +57,11 @@ Sequences are lazily evaluated to avoid examining all of the input data when it'
 
 ## [API documentation](https://winterbe.github.io/sequency/)
 
+Sequency is fully documented via inline JSDoc comments. [The docs are also available online](https://winterbe.github.io/sequency/). When using an IDE like Intellij IDEA or Webstorm the docs are available inline right inside your editor.
+
 ## Why Sequency?
 
-I've built Sequency because I'm using Kotlin for server-side code but for some reasons still use TypeScript and JavaScript for client-side browser code. I find that using the same APIs for collection processing is a huge gain in productivity for me.
+I've built Sequency because I'm using Kotlin for server-side code but for some reasons still use TypeScript and JavaScript for client-side browser code. I find that using the same APIs for collection processing both on client and server is a huge gain in productivity for me.
 
 ## License
 
