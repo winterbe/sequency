@@ -3,14 +3,13 @@
 > Functional sequences for processing iterable data in JavaScript - inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/).
 
 ```js
-import {sequenceOf} from 'sequency';
-
-const array = sequenceOf(1, 2, 3)
-    .filter(num => num % 2 === 1)
-    .map(num => `odd=${num}`)
-    .toArray();
-
-console.log(array);  // ['odd=1', 'odd=3']
+asSequence(persons)
+   .filterNot(it => it.age < 18)
+   .flatMap(it => asSequence(it.children))
+   .distinctBy(it => it.lastName)
+   .sortedBy(it => it.firstName)
+   .take(10)
+   .toArray();
 ```
 
 <p align="center">
