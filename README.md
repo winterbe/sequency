@@ -23,7 +23,7 @@ Sequency is a lightweight (**2.86 KB minified, gzipped**), intensely tested (**1
 
 > Not convinced? [Try Sequency](https://npm.runkit.com/sequency) right in your browser.
 
-## Install
+## Getting started
 
 Download the [latest release](https://github.com/winterbe/sequency/releases) from GitHub or install Sequency from [NPM](https://www.npmjs.com/package/sequency):
 
@@ -31,7 +31,7 @@ Download the [latest release](https://github.com/winterbe/sequency/releases) fro
 npm install --save sequency
 ```
 
-You can also use Sequency via [CND](https://unpkg.com/sequency/):
+You can also use Sequency via [CND](https://unpkg.com/sequency/) by adding this to your HTML:
 
 ```html
 <script src="https://unpkg.com/sequency" crossorigin="anonymous"></script>
