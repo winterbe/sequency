@@ -1,6 +1,6 @@
 {
   "name": "sequency",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequency.js",
@@ -34,15 +34,15 @@
     "node": ">=6.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^20.0.7",
+    "@types/jest": "^20.0.8",
     "awesome-typescript-loader": "^3.2.3",
     "gh-pages": "^1.0.0",
     "jest": "^20.0.4",
     "rimraf": "^2.6.1",
     "size-limit": "^0.10.0",
     "typedoc": "^0.8.0",
-    "typescript": "^2.4.2",
-    "webpack": "^3.5.4"
+    "typescript": "^2.5.1",
+    "webpack": "^3.5.5"
   },
   "dependencies": {},
   "jest": {

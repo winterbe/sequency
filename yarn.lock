@@ -23,9 +23,9 @@
   version "9.1.9"
   resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.1.9.tgz#ed6336955eaf233b75eb7923b9b1f373d045ef01"
 
-"@types/jest@^20.0.7":
-  version "20.0.7"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.7.tgz#39cd215db8bda03928dceb933a1e63eb2cbd210e"
+"@types/jest@^20.0.8":
+  version "20.0.8"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-20.0.8.tgz#7f8c97f73d20d3bf5448fbe33661a342002b5954"
 
 "@types/lodash@^4.14.37":
   version "4.14.73"
@@ -4512,9 +4512,9 @@ typescript@2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.1.tgz#c3ccb16ddaa0b2314de031e7e6fee89e5ba346bc"
 
-typescript@^2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.4.2.tgz#f8395f85d459276067c988aa41837a8f82870844"
+typescript@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.5.1.tgz#ce7cc93ada3de19475cc9d17e3adea7aee1832aa"
 
 uglify-es@^3.0.24:
   version "3.0.28"
@@ -4732,6 +4732,33 @@ webpack-sources@^1.0.1:
 webpack@^3.5.4:
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.5.4.tgz#5583eb263ed27b78b5bd17bfdfb0eb1b1cd1bf81"
+  dependencies:
+    acorn "^5.0.0"
+    acorn-dynamic-import "^2.0.0"
+    ajv "^5.1.5"
+    ajv-keywords "^2.0.0"
+    async "^2.1.2"
+    enhanced-resolve "^3.4.0"
+    escope "^3.6.0"
+    interpret "^1.0.0"
+    json-loader "^0.5.4"
+    json5 "^0.5.1"
+    loader-runner "^2.3.0"
+    loader-utils "^1.1.0"
+    memory-fs "~0.4.1"
+    mkdirp "~0.5.0"
+    node-libs-browser "^2.0.0"
+    source-map "^0.5.3"
+    supports-color "^4.2.1"
+    tapable "^0.2.7"
+    uglifyjs-webpack-plugin "^0.4.6"
+    watchpack "^1.4.0"
+    webpack-sources "^1.0.1"
+    yargs "^8.0.2"
+
+webpack@^3.5.5:
+  version "3.5.5"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-3.5.5.tgz#3226f09fc8b3e435ff781e7af34f82b68b26996c"
   dependencies:
     acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
