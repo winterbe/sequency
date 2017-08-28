@@ -31,7 +31,7 @@ Download the [latest release](https://github.com/winterbe/sequency/releases) fro
 npm install --save sequency
 ```
 
-You can also use Sequency via [CND](https://unpkg.com/sequency/) by adding this to your HTML:
+You can also use Sequency via [CDN](https://unpkg.com/sequency/) by adding this to your HTML:
 
 ```html
 <script src="https://unpkg.com/sequency" crossorigin="anonymous"></script>
