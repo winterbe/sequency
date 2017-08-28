@@ -37,13 +37,11 @@ You can also use Sequency via [CND](https://unpkg.com/sequency/) by adding this 
 <script src="https://unpkg.com/sequency" crossorigin="anonymous"></script>
 ```
 
-## How sequences works
+## How Sequency works
 
-Sequency is centered around a single class `Sequence` to process any kind of iterable data. The API is inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html). 
+Sequency is centered around a single class called `Sequence` to process any kind of iterable data such as arrays, sets or maps. The API is inspired by [Kotlin](https://kotlinlang.org/) [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html). 
 
-Each `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions return a new sequence, thus enabling method chaining while terminal functions return an arbitrary result.
-
-Sequences can be created with one of the following functions:
+Sequences can be created by utilizing one of the following functions:
 
 ```js
 import {sequenceOf, asSequence, emptySequence} from 'sequency';
@@ -53,7 +51,9 @@ import {sequenceOf, asSequence, emptySequence} from 'sequency';
 - `asSequence` accepts an iterable (e.g. an array, set or map) and returns a new sequence.
 - `emptySequence` returns a new empty sequence.
 
-Sequences are lazily evaluated to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
+Each `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions (e.g. `filter`, `map`, `sorted`) return a new sequence, thus enabling method chaining. Terminal functions (e.g. `toArray`, `groupBy`, `findLast`) return an arbitrary result. Detailed descriptions of all operations are available in the [API docs](https://winterbe.github.io/sequency/).
+
+Sequences are **lazily evaluated** to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
 
 ## [API documentation](https://winterbe.github.io/sequency/)
 
