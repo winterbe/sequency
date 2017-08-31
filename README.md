@@ -4,12 +4,12 @@
 
 ```js
 asSequence(persons)
-   .filterNot(it => it.age < 18)
-   .flatMap(it => asSequence(it.children))
-   .distinctBy(it => it.lastName)
-   .sortedBy(it => it.firstName)
-   .take(10)
-   .toArray();
+  .filterNot(it => it.age < 18)
+  .flatMap(it => asSequence(it.children))
+  .distinctBy(it => it.lastName)
+  .sortedBy(it => it.firstName)
+  .take(10)
+  .toArray();
 ```
 
 <p align="center">
