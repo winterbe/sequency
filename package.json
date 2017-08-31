@@ -41,7 +41,7 @@
     "rimraf": "^2.6.1",
     "size-limit": "^0.10.0",
     "typedoc": "^0.8.0",
-    "typescript": "^2.5.1",
+    "typescript": "^2.5.2",
     "webpack": "^3.5.5"
   },
   "dependencies": {},
