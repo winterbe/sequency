@@ -65,6 +65,8 @@ import min from "./min";
 import minBy from "./minBy";
 import maxWith from "./maxWith";
 import minWith from "./minWith";
+import dropWhile from "./dropWhile";
+import takeWhile from "./takeWhile";
 
 /**
  * A Sequence accepts an iterator and provides a fluent functional API consisting
@@ -87,7 +89,9 @@ export default class Sequence<T> {
     distinctBy = distinctBy;
     withIndex = withIndex;
     drop = drop;
+    dropWhile = dropWhile;
     take = take;
+    takeWhile = takeWhile;
     onEach = onEach;
     flatten = flatten;
     sorted = sorted;
