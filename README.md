@@ -12,9 +12,13 @@ asSequence(persons)
   .toArray();
 ```
 
+---
+
 <p align="center">
 <strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a> and <a href="https://twitter.com/winterbe_">follow on Twitter</a>! Thanks. ★★★</strong>
 </p>
+
+---
 
 ## About Sequency
 
