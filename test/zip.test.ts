@@ -6,9 +6,9 @@ describe("zip", () => {
             .zip(sequenceOf(1, 2, 3))
             .toArray();
         expect(array.length).toBe(3);
-        expect(array[0]).toEqual(['a', 1]);
-        expect(array[1]).toEqual(['b', 2]);
-        expect(array[2]).toEqual(['c', 3]);
+        expect(array[0]).toEqual(["a", 1]);
+        expect(array[1]).toEqual(["b", 2]);
+        expect(array[2]).toEqual(["c", 3]);
     });
 
     it("should discard elements if length of sequences is different", () => {

@@ -6,14 +6,14 @@ import Sequence from "./Sequence";
  * @returns {T}
  */
 function max<T>(this: Sequence<T>): T | null {
-    let max: T | null = null;
+    let result: T | null = null;
     while (this.iterator.hasNext()) {
         const item = this.iterator.next();
-        if (max == null || item > max) {
-            max = item;
+        if (result == null || item > result) {
+            result = item;
         }
     }
-    return max;
+    return result;
 }
 
 export default max;

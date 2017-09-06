@@ -7,7 +7,7 @@ import Sequence from "./Sequence";
  * @param {(value: T) => boolean} predicate
  * @returns {{true: Array<T>; false: Array<T>}}
  */
-function partition<T>(this: Sequence<T>, predicate: (value: T) => boolean): { 'true': Array<T>, 'false': Array<T> } {
+function partition<T>(this: Sequence<T>, predicate: (value: T) => boolean): { "true": Array<T>, "false": Array<T> } {
     const arrayTrue: Array<T> = [];
     const arrayFalse: Array<T> = [];
     while (this.iterator.hasNext()) {
@@ -18,7 +18,7 @@ function partition<T>(this: Sequence<T>, predicate: (value: T) => boolean): { 't
             arrayFalse.push(item);
         }
     }
-    return {'true': arrayTrue, 'false': arrayFalse};
+    return {"true": arrayTrue, "false": arrayFalse};
 }
 
 export default partition;

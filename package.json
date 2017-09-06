@@ -9,10 +9,12 @@
     "test": "jest",
     "watch": "jest --watch --notify",
     "coverage": "rimraf coverage && jest --coverage",
+    "travis": "yarn run lint && yarn test",
+    "lint": "node_modules/.bin/tslint -c tslint.json src/**/*.ts test/**/*.ts",
     "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --target es6 --hideGenerator --gaID UA-48569937-1 src",
     "docs-publish": "yarn run docs && touch docs/.nojekyll && gh-pages -d docs -t",
-    "build": "rimraf lib && rimraf lib-umd && tsc && webpack && size-limit",
-    "build-prod": "yarn test && yarn run build && yarn run docs-publish",
+    "build": "rimraf lib && rimraf lib-umd && yarn run lint && tsc && yarn test && webpack && size-limit",
+    "build-prod": "yarn run build && yarn run docs-publish",
     "prepublishOnly": "yarn run build-prod"
   },
   "author": "Benjamin Winterberg",
@@ -37,9 +39,10 @@
     "@types/jest": "^20.0.8",
     "awesome-typescript-loader": "^3.2.3",
     "gh-pages": "^1.0.0",
-    "jest": "^20.0.4",
+    "jest": "^21.0.1",
     "rimraf": "^2.6.1",
-    "size-limit": "^0.10.0",
+    "size-limit": "^0.11.0",
+    "tslint": "^5.7.0",
     "typedoc": "^0.8.0",
     "typescript": "^2.5.2",
     "webpack": "^3.5.5"
@@ -57,10 +60,12 @@
       "**/test/*.ts"
     ]
   },
-  "size-limit": [{
-    "path": "lib-umd/sequency.min.js",
-    "limit": "5 KB"
-  }],
+  "size-limit": [
+    {
+      "path": "lib-umd/sequency.min.js",
+      "limit": "3 KB"
+    }
+  ],
   "keywords": [
     "functional",
     "sequence",

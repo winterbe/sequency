@@ -6,14 +6,14 @@ import Sequence from "./Sequence";
  * @returns {T}
  */
 function min<T>(this: Sequence<T>): T | null {
-    let min: T | null = null;
+    let result: T | null = null;
     while (this.iterator.hasNext()) {
         const item = this.iterator.next();
-        if (min == null || item < min) {
-            min = item;
+        if (result == null || item < result) {
+            result = item;
         }
     }
-    return min;
+    return result;
 }
 
 export default min;

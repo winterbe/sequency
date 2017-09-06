@@ -9,12 +9,12 @@ import {IterableIterator} from "./SequenceIterator";
  * @returns {Sequence<T>}
  */
 function sortedBy<T, R>(this: Sequence<T>, selector: (value: T) => R): Sequence<T> {
-    const sorted: Array<T> = [];
+    const result: Array<T> = [];
     while (this.iterator.hasNext()) {
         const item = this.iterator.next();
-        sorted.push(item);
+        result.push(item);
     }
-    sorted.sort((item1: T, item2: T) => {
+    result.sort((item1: T, item2: T) => {
         const key1 = selector(item1);
         const key2 = selector(item2);
         if (key1 < key2) {
@@ -25,7 +25,7 @@ function sortedBy<T, R>(this: Sequence<T>, selector: (value: T) => R): Sequence<
         }
         return 0;
     });
-    return new Sequence(new IterableIterator(sorted));
+    return new Sequence(new IterableIterator(result));
 }
 
 export default sortedBy;

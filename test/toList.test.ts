@@ -1,7 +1,7 @@
 import {asSequence, sequenceOf} from "../src/Sequence";
 
 describe("toList", () => {
-    it('should return new array', () => {
+    it("should return new array", () => {
         const input = [1, 2, 3];
         const array = asSequence(input)
             .toList();
@@ -22,5 +22,5 @@ describe("toList", () => {
         expect(array[1]).toBe(2);
         expect(array[2]).toBe(3);
         expect(array[3]).toBe(4);
-    })
+    });
 });

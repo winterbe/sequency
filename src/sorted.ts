@@ -7,13 +7,13 @@ import {IterableIterator} from "./SequenceIterator";
  * @returns {Sequence<T>}
  */
 function sorted<T>(this: Sequence<T>): Sequence<T> {
-    const sorted: Array<T> = [];
+    const result: Array<T> = [];
     while (this.iterator.hasNext()) {
         const item = this.iterator.next();
-        sorted.push(item);
+        result.push(item);
     }
-    sorted.sort();
-    return new Sequence(new IterableIterator(sorted));
+    result.sort();
+    return new Sequence(new IterableIterator(result));
 }
 
 export default sorted;

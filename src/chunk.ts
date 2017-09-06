@@ -15,11 +15,11 @@ function chunk<T>(this: Sequence<T>, chunkSize: number): Array<Array<T>> {
     let index = 0;
     while (this.iterator.hasNext()) {
         const item = this.iterator.next();
-        const chunk = Math.floor(index / chunkSize);
-        if (result[chunk] == null) {
-            result[chunk] = [item];
+        const chunkIndex = Math.floor(index / chunkSize);
+        if (result[chunkIndex] == null) {
+            result[chunkIndex] = [item];
         } else {
-            result[chunk].push(item);
+            result[chunkIndex].push(item);
         }
         index++;
     }

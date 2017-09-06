@@ -5,7 +5,7 @@ describe("single", () => {
     it("should return single element", () => {
         const result = sequenceOf(23)
             .single();
-        expect(result).toBe(23)
+        expect(result).toBe(23);
     });
 
     it("should throw with more than one element", () => {
@@ -23,7 +23,7 @@ describe("single", () => {
     it("should evaluate predicate and return single element", () => {
         const result = sequenceOf(1, 2, 3)
             .single(it => it > 2);
-        expect(result).toBe(3)
+        expect(result).toBe(3);
     });
 
     it("should evaluate predicate and throw with more than one element", () => {

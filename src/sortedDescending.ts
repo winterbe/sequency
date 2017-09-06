@@ -7,21 +7,21 @@ import {IterableIterator} from "./SequenceIterator";
  * @returns {Sequence<T>}
  */
 function sortedDescending<T>(this: Sequence<T>): Sequence<T> {
-    const sorted: Array<T> = [];
+    const result: Array<T> = [];
     while (this.iterator.hasNext()) {
         const item = this.iterator.next();
-        sorted.push(item);
+        result.push(item);
     }
-    sorted.sort((item1: T, item2: T) => {
+    result.sort((item1: T, item2: T) => {
         if (item1 < item2) {
             return 1;
         }
         if (item1 > item2) {
-            return -1
+            return -1;
         }
         return 0;
     });
-    return new Sequence(new IterableIterator(sorted));
+    return new Sequence(new IterableIterator(result));
 }
 
 export default sortedDescending;

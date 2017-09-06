@@ -1,7 +1,7 @@
 import {sequenceOf} from "../src/Sequence";
 
 describe("onEach", () => {
-    it('should call action for each element', () => {
+    it("should call action for each element", () => {
         const array = [];
         const result = sequenceOf(1, 2, 3)
             .onEach(it => array.push(it))

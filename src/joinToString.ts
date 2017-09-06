@@ -1,13 +1,13 @@
 import Sequence from "./Sequence";
 
 export interface JoinConfig<T> {
-    value?: string,
-    separator?: string
-    prefix?: string
-    postfix?: string
-    limit?: number
-    truncated?: string
-    transform?: (value: T) => string
+    value?: string;
+    separator?: string;
+    prefix?: string;
+    postfix?: string;
+    limit?: number;
+    truncated?: string;
+    transform?: (value: T) => string;
 }
 
 const defaults = {
