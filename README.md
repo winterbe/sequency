@@ -18,7 +18,7 @@ asSequence(persons)
 
 ## About Sequency
 
-Sequency is a lightweight (**2.9 KB minified**), intensely tested (**165+ tests, 99% coverage**), type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications. The API is inspired by [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/) from the programming language [Kotlin](https://kotlinlang.org/).
+Sequency is a lightweight (**2.9 KB minified**), intensely tested (**170+ tests, 99% coverage**), type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications. The API is inspired by [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/) from the programming language [Kotlin](https://kotlinlang.org/).
 
 > Not convinced? [Try Sequency](https://npm.runkit.com/sequency) right in your browser.
 
@@ -49,6 +49,7 @@ import {sequenceOf, asSequence, emptySequence} from 'sequency';
 - `sequenceOf` accepts one or many values and returns a new sequence.
 - `asSequence` accepts an iterable (e.g. an array, set or map) and returns a new sequence.
 - `emptySequence` returns a new empty sequence.
+- `generateSequence` returns a sequence generated from the given generator function.
 
 Each `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions (e.g. `filter`, `map`, `sorted`) return a new sequence, thus enabling method chaining. Terminal functions (e.g. `toArray`, `groupBy`, `findLast`) return an arbitrary result. Detailed descriptions of all operations are available in the [API docs](https://winterbe.github.io/sequency/).
 

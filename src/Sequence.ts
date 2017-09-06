@@ -1,4 +1,4 @@
-import SequenceIterator, {IterableIterator} from "./SequenceIterator";
+import SequenceIterator, {GeneratorIterator, GeneratorSeedIterator, IterableIterator} from "./SequenceIterator";
 import map from "./map";
 import filter from "./filter";
 import flatMap from "./flatMap";
@@ -75,7 +75,8 @@ import takeWhile from "./takeWhile";
  * when it's not necessary. Sequences can be iterated only once.
  */
 export default class Sequence<T> {
-    constructor(readonly iterator: SequenceIterator<T>) {}
+    constructor(readonly iterator: SequenceIterator<T>) {
+    }
 
     map = map;
     mapNotNull = mapNotNull;
@@ -161,4 +162,17 @@ export function emptySequence<T>(): Sequence<T> {
 
 export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
     return new Sequence<T>(new IterableIterator(iterable));
+}
+
+export function generateSequence<T>(nextFunction: () => T | null | undefined): Sequence<T>;
+export function generateSequence<T>(seedFunction: () => T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
+export function generateSequence<T>(seed: T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
+export function generateSequence<T>(a: any, b?: any): Sequence<T> {
+    if (typeof a === "function" && b == null) {
+        return new Sequence<T>(new GeneratorIterator(a));
+    }
+    const seed = typeof a === "function" ? a() : a;
+    return seed != null
+        ? new Sequence<T>(new GeneratorSeedIterator(seed, b))
+        : emptySequence<T>();
 }
