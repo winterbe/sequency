@@ -3,11 +3,10 @@ import {asSequence, generateSequence, sequenceOf} from "../src/Sequence";
 describe("examples", () => {
 
     it("should be beer-o-clock", () => {
-        const result = sequenceOf("🍻", "🍻", "🍻")
+        const result = sequenceOf("🍻", "🍻")
             .flatMap(it => sequenceOf("🍺", "🍺"))
             .toArray();
-        expect(result.length).toBe(6);
-        result.forEach(it => expect(it).toBe("🍺"));
+        expect(result).toEqual(["🍺", "🍺", "🍺", "🍺"]);
     });
 
     it("should generate sequence of fibonacci numbers", () => {
@@ -31,12 +30,9 @@ describe("examples", () => {
                 yield i++;
             }
         }
-
         const result = asSequence(generator())
             .take(3)
             .toArray();
-
-        expect(result.length).toBe(3);
         expect(result).toEqual([0, 1, 2]);
     });
 
