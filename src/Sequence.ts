@@ -67,6 +67,7 @@ import maxWith from "./maxWith";
 import minWith from "./minWith";
 import dropWhile from "./dropWhile";
 import takeWhile from "./takeWhile";
+import asIterable from "./asIterable";
 
 /**
  * A Sequence accepts an iterator and provides a fluent functional API consisting
@@ -150,6 +151,7 @@ export default class Sequence<T> {
     min = min;
     minBy = minBy;
     minWith = minWith;
+    asIterable = asIterable;
 }
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
