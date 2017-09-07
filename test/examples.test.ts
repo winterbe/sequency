@@ -10,10 +10,11 @@ describe("examples", () => {
     });
 
     it("should generate sequence of fibonacci numbers", () => {
-        const nums = generateSequence([0, 1], ([a, b]) => [b, a + b])
-            .map(([a, _]) => a)
-            .take(10)
-            .toArray();
+        const nums =
+            generateSequence([0, 1], ([a, b]) => [b, a + b])
+                .map(([a, _]) => a)
+                .take(10)
+                .toArray();
         expect(nums).toEqual([0, 1, 1, 2, 3, 5, 8, 13, 21, 34]);
     });
 
@@ -30,6 +31,7 @@ describe("examples", () => {
                 yield i++;
             }
         }
+
         const result = asSequence(generator())
             .take(3)
             .toArray();
