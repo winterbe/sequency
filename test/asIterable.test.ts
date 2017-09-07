@@ -1,5 +1,4 @@
 import {sequenceOf} from "../src/Sequence";
-import "babel-polyfill";
 
 describe("asIterable", () => {
     it("should return an iterable object conforming to the iterator-protocol", () => {
