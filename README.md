@@ -37,7 +37,7 @@ npm install --save sequency
 Alternatively use Sequency from [CDN](https://unpkg.com/sequency/) by adding this to your HTML:
 
 ```html
-<script src="https://unpkg.com/sequency" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sequency"></script>
 ```
 
 ## How Sequency works
@@ -47,7 +47,7 @@ Sequency is centered around a single class called `Sequence` to process any kind
 Sequences can be created by utilizing one of the following functions:
 
 ```js
-import {sequenceOf, asSequence, emptySequence} from 'sequency';
+import {sequenceOf, asSequence, emptySequence, generateSequence} from 'sequency';
 ```
 
 - `sequenceOf` accepts one or many values and returns a new sequence.
