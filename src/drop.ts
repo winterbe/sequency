@@ -8,7 +8,7 @@ import Sequence from "./Sequence";
  */
 function drop<T>(this: Sequence<T>, n: number): Sequence<T> {
     return this.withIndex()
-        .filterNot(it => it.index < n)
+        .dropWhile(it => it.index < n)
         .map(it => it.value);
 }
 

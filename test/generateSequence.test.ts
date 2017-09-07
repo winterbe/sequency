@@ -4,7 +4,7 @@ describe("generateSequence", () => {
     it("should generate sequence", () => {
         let count = 0;
         const result = generateSequence(() => count++)
-            .takeWhile(it => it < 5)
+            .take(5)
             .toArray();
         expect(result.length).toBe(5);
         expect(result[0]).toBe(0);
@@ -12,6 +12,20 @@ describe("generateSequence", () => {
         expect(result[2]).toBe(2);
         expect(result[3]).toBe(3);
         expect(result[4]).toBe(4);
+    });
+
+    it("should generate sequence with drop and take", () => {
+        let count = 0;
+        const result = generateSequence(() => count++)
+            .drop(5)
+            .take(5)
+            .toArray();
+        expect(result.length).toBe(5);
+        expect(result[0]).toBe(5);
+        expect(result[1]).toBe(6);
+        expect(result[2]).toBe(7);
+        expect(result[3]).toBe(8);
+        expect(result[4]).toBe(9);
     });
 
     it("should generate sequence with seed", () => {
