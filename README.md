@@ -1,6 +1,6 @@
 # Sequency [![Travic CI](https://travis-ci.org/winterbe/sequency.svg?branch=master)](https://travis-ci.org/winterbe/sequency)
 
-> Type-safe sequences for processing iterable data in JavaScript (written in TypeScript and inspired by [Kotlin](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/)).
+> Type-safe functional sequences for processing iterable data in TypeScript and JavaScript.
 
 ```js
 asSequence(persons)
