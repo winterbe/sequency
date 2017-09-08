@@ -15,7 +15,7 @@ asSequence(persons)
 ---
 
 <p align="center">
-<strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a> and <a href="https://twitter.com/winterbe_">follow on Twitter</a>! Thanks. ★★★</strong>
+<strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a> and <a href="https://twitter.com/winterbe_">feedback on Twitter</a>! Thanks. ★★★</strong>
 </p>
 
 ---
