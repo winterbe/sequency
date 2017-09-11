@@ -7,7 +7,7 @@
     "no-duplicate-variable": true,
     "no-eval": true,
     "no-internal-module": true,
-    "no-shadowed-variable": true,
+    "no-shadowed-variable": false,
     "no-switch-case-fall-through": true,
     "no-unused-expression": true,
     "no-use-before-declare": false,
