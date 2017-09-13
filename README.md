@@ -7,8 +7,9 @@ asSequence(persons)
   .filterNot(it => it.age < 18)
   .flatMap(it => asSequence(it.children))
   .distinctBy(it => it.lastName)
-  .sortedBy(it => it.firstName)
-  .take(10)
+  .sorted(it => it.compareBy(it => it.age)
+      .thenByDescending(it => it.firstName))
+  .take(23)
   .toArray();
 ```
 
