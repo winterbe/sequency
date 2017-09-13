@@ -5,7 +5,8 @@ import Comparator from "./Comparator";
 import createComparatorFactory from "./createComparatorFactory";
 
 /**
- * Returns a new sequence with all elements sorted ascending in natural order.
+ * Returns a new sequence with all elements sorted by the comparator specified by the given `composeComparator` function
+ * or in natural order if no arguments are given.
  *
  * @returns {Sequence<T>}
  */
