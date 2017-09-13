@@ -6,9 +6,12 @@
 asSequence(persons)
   .filterNot(it => it.age < 18)
   .flatMap(it => asSequence(it.children))
-  .distinctBy(it => it.lastName)
-  .sorted(it => it.compareBy(it => it.age)
-      .thenByDescending(it => it.firstName))
+  .sorted(
+    it => it.nullsLast()
+      .thenBy(it => it.lastName)
+      .thenBy(it => it.firstName)
+      .thenByDescending(it => it.age)
+  )
   .take(23)
   .toArray();
 ```
