@@ -24,6 +24,15 @@ interface ComparatorFactory<T> {
     compareBy(selector: (value: T) => any): Comparator<T>;
 
     /**
+     * Constructs a new comparator where values are ordered by the natural ascending order
+     * of values for the given `key`.
+     *
+     * @param {keyof T} key
+     * @returns {Comparator<T>}
+     */
+    compareBy(key: keyof T): Comparator<T>;
+
+    /**
      * Constructs a new comparator where values are ordered by the natural descending order
      * of the property selected by the given `selector` function.
      *
@@ -31,6 +40,15 @@ interface ComparatorFactory<T> {
      * @returns {Comparator<T>}
      */
     compareByDescending(selector: (value: T) => any): Comparator<T>;
+
+    /**
+     * Constructs a new comparator where values are ordered by the natural descending order
+     * of values for the given `key`.
+     *
+     * @param {keyof T} key
+     * @returns {Comparator<T>}
+     */
+    compareByDescending(key: keyof T): Comparator<T>;
 
     /**
      * Constructs a new comparator where values are ordered naturally.

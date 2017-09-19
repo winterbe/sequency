@@ -3,6 +3,12 @@ import Comparator from "./Comparator";
 
 const naturalCompare = (a, b) => a < b ? -1 : a > b ? 1 : 0;
 
+type Selector<T> = (value: T) => any;
+
+const asSelector = <T>(keyOrSelector: any): Selector<T> => typeof keyOrSelector === "function"
+    ? keyOrSelector
+    : (value: T) => value[keyOrSelector];
+
 function compare<T>(comparison: (a: T, b: T) => number): Comparator<T> {
     return Object.assign(comparison, {
         reversed(): Comparator<T> {
@@ -26,12 +32,14 @@ function compare<T>(comparison: (a: T, b: T) => number): Comparator<T> {
                     .reversed()
             );
         },
-        thenBy(selector: (value: T) => any): Comparator<T> {
+        thenBy(keyOrSelector: any): Comparator<T> {
+            const selector = asSelector<T>(keyOrSelector);
             return this.then(
                 (a: T, b: T) => naturalCompare(selector(a), selector(b))
             );
         },
-        thenByDescending(selector: (value: T) => any): Comparator<T> {
+        thenByDescending(keyOrSelector: any): Comparator<T> {
+            const selector = asSelector<T>(keyOrSelector);
             return this.then(
                 compare(
                     (a: T, b: T) => naturalCompare(selector(a), selector(b))
@@ -41,13 +49,15 @@ function compare<T>(comparison: (a: T, b: T) => number): Comparator<T> {
     });
 }
 
-function compareBy<T>(selector: (value: T) => any): Comparator<T> {
+function compareBy<T>(keyOrSelector: any): Comparator<T> {
+    const selector = asSelector<T>(keyOrSelector);
     return compare<T>(
         (a: T, b: T) => naturalCompare(selector(a), selector(b))
     );
 }
 
-function compareByDescending<T>(selector: (value: T) => any): Comparator<T> {
+function compareByDescending<T>(keyOrSelector: any): Comparator<T> {
+    const selector = asSelector<T>(keyOrSelector);
     return compare<T>(
         (a: T, b: T) => naturalCompare(selector(b), selector(a))
     );
