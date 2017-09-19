@@ -44,6 +44,15 @@ interface Comparator<T> {
     thenBy(selector: (value: T) => any): Comparator<T>;
 
     /**
+     * Composes the current comparator with a comparator which compares the values
+     * of the given `key` for every equal values of the current comparator.
+     *
+     * @param {keyof T} key
+     * @returns {Comparator<T>}
+     */
+    thenBy(key: keyof T): Comparator<T>;
+
+    /**
      * Composes the current comparator with a comparator which compares the properties
      * selected by the given `selector` function for every equal values of the current
      * comparator in reverse (descending) order.
@@ -52,6 +61,16 @@ interface Comparator<T> {
      * @returns {Comparator<T>}
      */
     thenByDescending(selector: (value: T) => any): Comparator<T>;
+
+    /**
+     * Composes the current comparator with a comparator which compares the values
+     * of the given `key` for every equal values of the current comparator
+     * in reverse (descending) order.
+     *
+     * @param {keyof T} key
+     * @returns {Comparator<T>}
+     */
+    thenByDescending(key: keyof T): Comparator<T>;
 }
 
 export default Comparator;
