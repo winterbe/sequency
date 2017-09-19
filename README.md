@@ -8,9 +8,9 @@ asSequence(persons)
   .flatMap(it => asSequence(it.children))
   .sorted(
     it => it.nullsLast()
-      .thenBy(it => it.lastName)
-      .thenBy(it => it.firstName)
-      .thenByDescending(it => it.age)
+      .thenBy("lastName")
+      .thenBy("firstName")
+      .thenByDescending("age")
   )
   .take(23)
   .toArray();
