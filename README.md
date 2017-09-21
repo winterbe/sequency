@@ -1,4 +1,4 @@
-# Sequency [![Travic CI](https://travis-ci.org/winterbe/sequency.svg?branch=master)](https://travis-ci.org/winterbe/sequency)
+# ![Sequencey](/sequency.png) [![Travic CI](https://travis-ci.org/winterbe/sequency.svg?branch=master)](https://travis-ci.org/winterbe/sequency)
 
 > Type-safe functional sequences for processing iterable data in TypeScript and JavaScript.
 
