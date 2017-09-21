@@ -2,19 +2,7 @@
 
 > Type-safe functional sequences for processing iterable data in TypeScript and JavaScript.
 
-```js
-asSequence(persons)
-  .filterNot(it => it.age < 18)
-  .flatMap(it => asSequence(it.children))
-  .sorted(
-    it => it.nullsLast()
-      .thenBy("lastName")
-      .thenBy("firstName")
-      .thenByDescending("age")
-  )
-  .take(23)
-  .toArray();
-```
+![Sequencey](/sequency.gif)
 
 ---
 
