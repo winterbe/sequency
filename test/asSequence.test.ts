@@ -58,4 +58,22 @@ describe("asSequence", () => {
         expect(array[1]).toEqual(["b", 2]);
         expect(array[2]).toEqual(["c", 3]);
     });
+
+    it("should throw understandable error message if input is undefined", () => {
+        expect(
+            () => asSequence(undefined as Array<number>).toArray()
+        ).toThrowError("Cannot create sequence for input: undefined");
+    });
+
+    it("should throw understandable error message if input is null", () => {
+        expect(
+            () => asSequence(null as Array<number>).toArray()
+        ).toThrowError("Cannot create sequence for input: null");
+    });
+
+    it("should throw understandable error message if input is not iterable", () => {
+        expect(
+            () => asSequence({} as Array<number>).toArray()
+        ).toThrowError("Cannot create sequence for non-iterable input: [object Object]");
+    });
 });

@@ -165,6 +165,15 @@ export function emptySequence<T>(): Sequence<T> {
 }
 
 export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
+    if (iterable === null) {
+        throw new Error("Cannot create sequence for input: null");
+    }
+    if (iterable === undefined) {
+        throw new Error("Cannot create sequence for input: undefined");
+    }
+    if (iterable[Symbol.iterator] == null) {
+        throw new Error("Cannot create sequence for non-iterable input: " + iterable);
+    }
     return new Sequence<T>(new IterableIterator(iterable));
 }
 
