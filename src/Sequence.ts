@@ -33,7 +33,6 @@ import single from "./single";
 import singleOrNull from "./singleOrNull";
 import filterNot from "./filterNot";
 import associate from "./associate";
-import associateBy from "./associateBy";
 import groupBy from "./groupBy";
 import reduce from "./reduce";
 import reduceIndexed from "./reduceIndexed";
@@ -69,6 +68,10 @@ import dropWhile from "./dropWhile";
 import takeWhile from "./takeWhile";
 import asIterable from "./asIterable";
 import merge from "./merge";
+import { AssociateBy, associateBy } from "./associateBy";
+
+export default interface Sequence<T> extends AssociateBy<T> {
+}
 
 /**
  * A Sequence accepts an iterator and provides a fluent functional API consisting
@@ -131,7 +134,6 @@ export default class Sequence<T> {
     single = single;
     singleOrNull = singleOrNull;
     associate = associate;
-    associateBy = associateBy;
     groupBy = groupBy;
     reduce = reduce;
     reduceIndexed = reduceIndexed;
@@ -155,6 +157,7 @@ export default class Sequence<T> {
     asIterable = asIterable;
     merge = merge;
 }
+Sequence.prototype.associateBy = associateBy;
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
     return asSequence(args);
