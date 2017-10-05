@@ -39,6 +39,10 @@ export interface AssociateBy<T> {
     associateBy<K extends keyof T, V>(key: K, valueTransformer: (value: T) => V): Map<T[K], V>;
 }
 
+/**
+ * ## !!! IMPLEMENTATION DETAILS !!!
+ * ### The "real" documentation is here : [[Sequence.associateBy]]
+ */
 export function associateBy<T, K, V>(this: Sequence<T>,
                                      keyOrSelector: any,
                                      valueTransform?: (value: T) => V): Map<K, V | T> {
