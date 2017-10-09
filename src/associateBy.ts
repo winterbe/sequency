@@ -39,25 +39,29 @@ export interface AssociateBy<T> {
     associateBy<K extends keyof T, V>(key: K, valueTransformer: (value: T) => V): Map<T[K], V>;
 }
 
-/**
- * ## !!! IMPLEMENTATION DETAILS !!!
- * ### The "real" documentation is here : [[Sequence.associateBy]]
- */
-export function associateBy<T, K, V>(this: Sequence<T>,
-                                     keyOrSelector: any,
-                                     valueTransform?: (value: T) => V): Map<K, V | T> {
-    const selector = typeof keyOrSelector === "function"
-        ? keyOrSelector
-        : (value: T) => value[keyOrSelector as keyof T];
-    const result = new Map<K, V | T>();
-    const transform = valueTransform != null
-        ? valueTransform
-        : (value: T) => value;
-    while (this.iterator.hasNext()) {
-        const item = this.iterator.next();
-        const key = selector(item);
-        const value = transform(item);
-        result.set(key, value);
+export class AssociateBy<T> {
+
+    /**
+     * ## !!! IMPLEMENTATION DETAILS !!!
+     * ### The "real" documentation is here : [[Sequence.associateBy]]
+     */
+    associateBy<T, K, V>(this: Sequence<T>,
+                         keyOrSelector: any,
+                         valueTransform?: (value: T) => V): Map<K, V | T> {
+        const selector = typeof keyOrSelector === "function"
+            ? keyOrSelector
+            : (value: T) => value[keyOrSelector as keyof T];
+        const result = new Map<K, V | T>();
+        const transform = valueTransform != null
+            ? valueTransform
+            : (value: T) => value;
+        while (this.iterator.hasNext()) {
+            const item = this.iterator.next();
+            const key = selector(item);
+            const value = transform(item);
+            result.set(key, value);
+        }
+        return result;
     }
-    return result;
+
 }

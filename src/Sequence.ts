@@ -68,7 +68,7 @@ import dropWhile from "./dropWhile";
 import takeWhile from "./takeWhile";
 import asIterable from "./asIterable";
 import merge from "./merge";
-import { AssociateBy, associateBy } from "./associateBy";
+import { AssociateBy } from "./associateBy";
 
 export default interface Sequence<T> extends AssociateBy<T> {
 }
@@ -157,7 +157,15 @@ export default class Sequence<T> {
     asIterable = asIterable;
     merge = merge;
 }
-Sequence.prototype.associateBy = associateBy;
+applyMixins(Sequence, [AssociateBy]);
+
+function applyMixins(derivedCtor: any, baseCtors: any[]) {
+    baseCtors.forEach(baseCtor => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
+            derivedCtor.prototype[name] = baseCtor.prototype[name];
+        });
+    });
+}
 
 export function sequenceOf<T>(...args: Array<T>): Sequence<T> {
     return asSequence(args);
