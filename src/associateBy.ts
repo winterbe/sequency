@@ -1,6 +1,6 @@
 import Sequence from "./Sequence";
 
-export interface AssociateBy<T> {
+export class AssociateBy<T> {
 
     /**
      * Returns a map consisting of the elements mapped by the given `keySelector`.
@@ -37,14 +37,7 @@ export interface AssociateBy<T> {
      * @returns {Map<K, V>}
      */
     associateBy<K extends keyof T, V>(key: K, valueTransformer: (value: T) => V): Map<T[K], V>;
-}
 
-export class AssociateBy<T> {
-
-    /**
-     * ## !!! IMPLEMENTATION DETAILS !!!
-     * ### The "real" documentation is here : [[Sequence.associateBy]]
-     */
     associateBy<T, K, V>(this: Sequence<T>,
                          keyOrSelector: any,
                          valueTransform?: (value: T) => V): Map<K, V | T> {
