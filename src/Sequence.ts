@@ -1,4 +1,4 @@
-import SequenceIterator, {GeneratorIterator, GeneratorSeedIterator, IterableIterator} from "./SequenceIterator";
+import SequenceIterator, { GeneratorIterator, GeneratorSeedIterator, IterableIterator } from "./SequenceIterator";
 import map from "./map";
 import filter from "./filter";
 import flatMap from "./flatMap";
@@ -57,7 +57,6 @@ import sum from "./sum";
 import sumBy from "./sumBy";
 import chunk from "./chunk";
 import reverse from "./reverse";
-import average from "./average";
 import max from "./max";
 import maxBy from "./maxBy";
 import min from "./min";
@@ -69,8 +68,9 @@ import takeWhile from "./takeWhile";
 import asIterable from "./asIterable";
 import merge from "./merge";
 import { AssociateBy } from "./associateBy";
+import { Average } from "./average";
 
-export default interface Sequence<T> extends AssociateBy<T> {
+export default interface Sequence<T> extends AssociateBy<T>, Average<T> {
 }
 
 /**
@@ -147,7 +147,6 @@ export default class Sequence<T> {
     unzip = unzip;
     sum = sum;
     sumBy = sumBy;
-    average = average;
     max = max;
     maxBy = maxBy;
     maxWith = maxWith;
@@ -157,7 +156,7 @@ export default class Sequence<T> {
     asIterable = asIterable;
     merge = merge;
 }
-applyMixins(Sequence, [AssociateBy]);
+applyMixins(Sequence, [AssociateBy, Average]);
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
     baseCtors.forEach(baseCtor => {
@@ -189,8 +188,8 @@ export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
 }
 
 export function generateSequence<T>(nextFunction: () => T | null | undefined): Sequence<T>;
-export function generateSequence<T>(seedFunction: () => T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
-export function generateSequence<T>(seed: T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
+export function generateSequence<T>(seedFunction: () => T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
+export function generateSequence<T>(seed: T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
 export function generateSequence<T>(a: any, b?: any): Sequence<T> {
     if (typeof a === "function" && b == null) {
         return new Sequence<T>(new GeneratorIterator(a));
