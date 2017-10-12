@@ -11,7 +11,7 @@
     "coverage": "rimraf coverage && jest --coverage",
     "travis": "yarn run lint && yarn test",
     "lint": "node_modules/.bin/tslint -c tslint.json src/**/*.ts test/**/*.ts",
-    "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --target es6 --hideGenerator --gaID UA-48569937-1 src",
+    "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --excludeNotExported --target es6 --hideGenerator --gaID UA-48569937-1 src",
     "docs-publish": "yarn run docs && touch docs/.nojekyll && gh-pages -d docs -t",
     "build": "rimraf lib && rimraf lib-umd && yarn run lint && tsc && yarn test && webpack && size-limit",
     "build-prod": "yarn run build && yarn run docs-publish",

@@ -71,22 +71,25 @@ import {WithIndex} from "./withIndex";
 import {Zip} from "./zip";
 
 /**
+ * @hidden
+ */
+export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, AssociateBy<T>, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
+    DropWhile, ElementAt, ElementAtOrElse, ElementAtOrNull, Filter, FilterIndexed, FilterNot, FilterNotNull, First, FirstOrNull, FlatMap, Flatten, Fold, FoldIndexed,
+    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
+    Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
+    Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip {
+}
+
+/**
  * A Sequence provides a fluent functional API consisting
  * of various intermediate and terminal operations for processing the iterated data.
  * The operations are evaluated lazily to avoid examining all of the input data
  * when it's not necessary. Sequences can be iterated only once.
  */
-export default interface Sequence<T> extends All, Any, AsIterable, Associate, AssociateBy<T>, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
-    DropWhile, ElementAt, ElementAtOrElse, ElementAtOrNull, Filter, FilterIndexed, FilterNot, FilterNotNull, First, FirstOrNull, FlatMap, Flatten, Fold, FoldIndexed,
-    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
-    Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
-    Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip {
+export default interface Sequence<T> extends SequenceOperators<T> {
     readonly iterator: SequenceIterator<T>;
 }
 
-/**
- * @hidden
- */
 class SequenceImpl<T> {
     constructor(readonly iterator: SequenceIterator<T>) {
     }
