@@ -135,6 +135,14 @@ export function isSequence<T>(object: any): object is Sequence<T> {
     return object instanceof SequenceImpl;
 }
 
+export function augmentSequenceWithOperator(operatorName: string, operator: any) {
+    SequenceImpl.prototype[operatorName] = operator;
+}
+
+export function augmentSequenceWithMixin(mixin: any) {
+    applyMixins(SequenceImpl, [mixin]);
+}
+
 export function generateSequence<T>(nextFunction: () => T | null | undefined): Sequence<T>;
 export function generateSequence<T>(seedFunction: () => T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
 export function generateSequence<T>(seed: T | null | undefined, nextFunction: (item: T) => T | null | undefined): Sequence<T>;
