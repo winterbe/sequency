@@ -1,4 +1,4 @@
-import Sequence from "./Sequence";
+import Sequence, {createSequence} from "./Sequence";
 import SequenceIterator from "./SequenceIterator";
 
 class DistinctByIterator<T, K> implements SequenceIterator<T> {
@@ -40,15 +40,17 @@ class DistinctByIterator<T, K> implements SequenceIterator<T> {
     }
 }
 
-/**
- * Returns a new sequence which discards all elements with duplicate items determined
- * by the given `selector`.
- *
- * @param {(item: T) => K} selector
- * @returns {Sequence<T>}
- */
-function distinctBy<T, K>(this: Sequence<T>, selector: (item: T) => K): Sequence<T> {
-    return new Sequence(new DistinctByIterator(this.iterator, selector));
-}
+export class DistinctBy {
 
-export default distinctBy;
+    /**
+     * Returns a new sequence which discards all elements with duplicate items determined
+     * by the given `selector`.
+     *
+     * @param {(item: T) => K} selector
+     * @returns {Sequence<T>}
+     */
+    distinctBy<T, K>(this: Sequence<T>, selector: (item: T) => K): Sequence<T> {
+        return createSequence(new DistinctByIterator(this.iterator, selector));
+    }
+
+}

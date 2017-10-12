@@ -1,6 +1,6 @@
 import Sequence from "./Sequence";
 
-export class Average<T> {
+export class Average {
 
     /**
      * Returns the average of all numbers of the sequence or `NaN` if the sequence is empty.

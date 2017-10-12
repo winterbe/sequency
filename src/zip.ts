@@ -1,4 +1,4 @@
-import Sequence from "./Sequence";
+import Sequence, {createSequence} from "./Sequence";
 import SequenceIterator from "./SequenceIterator";
 
 class ZipIterator<T, S> implements SequenceIterator<[T, S]> {
@@ -19,16 +19,18 @@ class ZipIterator<T, S> implements SequenceIterator<[T, S]> {
 
 }
 
-/**
- * Returns a new sequence consisting of pairs built the elements of both sequences
- * with the same index. The resulting sequence has the length of the shortest input
- * sequence. All other elements are discarded.
- *
- * @param {Sequence<S>} other
- * @returns {Sequence<[T , S]>}
- */
-function zip<T, S>(this: Sequence<T>, other: Sequence<S>): Sequence<[T, S]> {
-    return new Sequence(new ZipIterator(this.iterator, other.iterator));
-}
+export class Zip {
 
-export default zip;
+    /**
+     * Returns a new sequence consisting of pairs built the elements of both sequences
+     * with the same index. The resulting sequence has the length of the shortest input
+     * sequence. All other elements are discarded.
+     *
+     * @param {Sequence<S>} other
+     * @returns {Sequence<[T , S]>}
+     */
+    zip<T, S>(this: Sequence<T>, other: Sequence<S>): Sequence<[T, S]> {
+        return createSequence(new ZipIterator(this.iterator, other.iterator));
+    }
+
+}

@@ -1,5 +1,5 @@
 import SequenceIterator from "./SequenceIterator";
-import Sequence from "./Sequence";
+import Sequence, {createSequence} from "./Sequence";
 
 class FilterIterator<T> implements SequenceIterator<T> {
     private nextItem: T | undefined;
@@ -37,14 +37,16 @@ class FilterIterator<T> implements SequenceIterator<T> {
     }
 }
 
-/**
- * Returns a new sequence consisting of all elements that match the given `predicate`.
- *
- * @param {(T) => boolean} predicate
- * @returns {Sequence<T>}
- */
-function filter<T>(this: Sequence<T>, predicate: (T) => boolean): Sequence<T> {
-    return new Sequence(new FilterIterator(predicate, this.iterator));
-}
+export class Filter {
 
-export default filter;
+    /**
+     * Returns a new sequence consisting of all elements that match the given `predicate`.
+     *
+     * @param {(T) => boolean} predicate
+     * @returns {Sequence<T>}
+     */
+    filter<T>(this: Sequence<T>, predicate: (T) => boolean): Sequence<T> {
+        return createSequence(new FilterIterator(predicate, this.iterator));
+    }
+
+}

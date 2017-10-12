@@ -1,4 +1,4 @@
-import Sequence from "./Sequence";
+import Sequence, {createSequence} from "./Sequence";
 import IndexedValue from "./IndexedValue";
 import SequenceIterator from "./SequenceIterator";
 
@@ -18,13 +18,15 @@ class IndexIterator<T> implements SequenceIterator<IndexedValue<T>> {
     }
 }
 
-/**
- * Returns a new sequence consisting of indexed values for all original elements.
- *
- * @returns {Sequence<IndexedValue<T>>}
- */
-function withIndex<T>(this: Sequence<T>): Sequence<IndexedValue<T>> {
-    return new Sequence(new IndexIterator(this.iterator));
-}
+export class WithIndex {
 
-export default withIndex;
+    /**
+     * Returns a new sequence consisting of indexed values for all original elements.
+     *
+     * @returns {Sequence<IndexedValue<T>>}
+     */
+    withIndex<T>(this: Sequence<T>): Sequence<IndexedValue<T>> {
+        return createSequence(new IndexIterator(this.iterator));
+    }
+
+}

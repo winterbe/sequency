@@ -1,4 +1,4 @@
-import Sequence from "./Sequence";
+import Sequence, {createSequence} from "./Sequence";
 import SequenceIterator from "./SequenceIterator";
 
 class TakeWhileIterator<T> implements SequenceIterator<T> {
@@ -38,14 +38,16 @@ class TakeWhileIterator<T> implements SequenceIterator<T> {
     }
 }
 
-/**
- * Takes all elements of the sequence as long as the given `predicate` evaluates to true.
- *
- * @param {(item: T) => boolean} predicate
- * @returns {Sequence<T>}
- */
-function takeWhile<T>(this: Sequence<T>, predicate: (item: T) => boolean): Sequence<T> {
-    return new Sequence(new TakeWhileIterator(this.iterator, predicate));
-}
+export class TakeWhile {
 
-export default takeWhile;
+    /**
+     * Takes all elements of the sequence as long as the given `predicate` evaluates to true.
+     *
+     * @param {(item: T) => boolean} predicate
+     * @returns {Sequence<T>}
+     */
+    takeWhile<T>(this: Sequence<T>, predicate: (item: T) => boolean): Sequence<T> {
+        return createSequence(new TakeWhileIterator(this.iterator, predicate));
+    }
+
+}

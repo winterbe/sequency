@@ -1,5 +1,5 @@
 import SequenceIterator from "./SequenceIterator";
-import Sequence from "./Sequence";
+import Sequence, {createSequence} from "./Sequence";
 
 class FlatMapIterator<S, T> implements SequenceIterator<T> {
     private current: SequenceIterator<T> | undefined;
@@ -37,14 +37,16 @@ class FlatMapIterator<S, T> implements SequenceIterator<T> {
     }
 }
 
-/**
- * Transforms each element into a sequence of items and returns a flat single sequence of all those items.
- *
- * @param {(value: S) => Sequence<T>} transform
- * @returns {Sequence<T>}
- */
-function flatMap<S, T>(this: Sequence<S>, transform: (value: S) => Sequence<T>): Sequence<T> {
-    return new Sequence(new FlatMapIterator(transform, this.iterator));
-}
+export class FlatMap {
 
-export default flatMap;
+    /**
+     * Transforms each element into a sequence of items and returns a flat single sequence of all those items.
+     *
+     * @param {(value: S) => Sequence<T>} transform
+     * @returns {Sequence<T>}
+     */
+    flatMap<S, T>(this: Sequence<S>, transform: (value: S) => Sequence<T>): Sequence<T> {
+        return createSequence(new FlatMapIterator(transform, this.iterator));
+    }
+
+}
