@@ -138,11 +138,7 @@ export function isSequence<T>(object: any): object is Sequence<T> {
     return object instanceof SequenceImpl;
 }
 
-export function augmentSequenceWithOperator(operatorName: string, operator: any) {
-    SequenceImpl.prototype[operatorName] = operator;
-}
-
-export function augmentSequenceWithMixin(mixin: any) {
+export function extendSequence(mixin: { new(): any }) {
     applyMixins(SequenceImpl, [mixin]);
 }
 
