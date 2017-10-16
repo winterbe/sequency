@@ -51,9 +51,9 @@ Each `Sequence` provides a fluent functional API consisting of intermediate and 
 
 Sequences are **lazily evaluated** to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
 
-## [API documentation](https://winterbe.github.io/sequency/)
+## [API documentation](https://winterbe.github.io/sequency/interfaces/_sequence_.sequence.html)
 
-Sequency is fully documented via inline JSDoc comments. [The docs are also available online](https://winterbe.github.io/sequency/). When using an IDE like Intellij IDEA or Webstorm the docs are available inline right inside your editor.
+Sequency is fully documented via inline JSDoc comments. [The docs are also available online](https://winterbe.github.io/sequency/interfaces/_sequence_.sequence.html). When using an IDE like Intellij IDEA or Webstorm the docs are available inline right inside your editor.
 
 ## Why Sequency?
 
