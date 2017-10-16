@@ -1,4 +1,4 @@
-import Sequence from "./Sequence";
+import Sequence, {createSequence} from "./Sequence";
 import SequenceIterator from "./SequenceIterator";
 
 class DropWhileIterator<T> implements SequenceIterator<T> {
@@ -44,14 +44,16 @@ class DropWhileIterator<T> implements SequenceIterator<T> {
     }
 }
 
-/**
- * Drops all elements of the sequence as long as the given `predicate` evaluates to true.
- *
- * @param {(item: T) => boolean} predicate
- * @returns {Sequence<T>}
- */
-function dropWhile<T>(this: Sequence<T>, predicate: (item: T) => boolean): Sequence<T> {
-    return new Sequence(new DropWhileIterator(this.iterator, predicate));
-}
+export class DropWhile {
 
-export default dropWhile;
+    /**
+     * Drops all elements of the sequence as long as the given `predicate` evaluates to true.
+     *
+     * @param {(item: T) => boolean} predicate
+     * @returns {Sequence<T>}
+     */
+    dropWhile<T>(this: Sequence<T>, predicate: (item: T) => boolean): Sequence<T> {
+        return createSequence(new DropWhileIterator(this.iterator, predicate));
+    }
+
+}

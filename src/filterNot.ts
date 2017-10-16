@@ -1,13 +1,15 @@
 import Sequence from "./Sequence";
 
-/**
- * Returns a new sequence consisting of all elements that don't match the given `predicate`.
- *
- * @param {(value: T) => boolean} predicate
- * @returns {Sequence<T>}
- */
-function filterNot<T>(this: Sequence<T>, predicate: (value: T) => boolean): Sequence<T> {
-    return this.filter((value: T) => !predicate(value));
-}
+export class FilterNot {
 
-export default filterNot;
+    /**
+     * Returns a new sequence consisting of all elements that don't match the given `predicate`.
+     *
+     * @param {(value: T) => boolean} predicate
+     * @returns {Sequence<T>}
+     */
+    filterNot<T>(this: Sequence<T>, predicate: (value: T) => boolean): Sequence<T> {
+        return this.filter((value: T) => !predicate(value));
+    }
+
+}

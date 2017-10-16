@@ -20,47 +20,59 @@ const defaults = {
     transform: undefined
 };
 
-/**
- * Joins all elements of the sequence into a string with the given configuration.
- *
- * @param {JoinConfig<T>} config
- * @returns {string}
- */
-function joinToString<T>(this: Sequence<T>, config: JoinConfig<T> = defaults): string {
-    const {
-        value = defaults.value,
-        separator = defaults.separator,
-        prefix = defaults.prefix,
-        postfix = defaults.postfix,
-        limit = defaults.limit,
-        truncated = defaults.truncated,
-        transform = defaults.transform
-    } = config;
+export class JoinToString {
 
-    let result = `${value}${prefix}`;
-    let count = 0;
+    /**
+     * Joins all elements of the sequence into a string with the given configuration.
+     *
+     * @param {JoinConfig<T>} config
+     * @returns {string}
+     */
+    joinToString<T>(this: Sequence<T>, config: JoinConfig<T> = defaults): string {
+        const {
+            value = defaults.value,
+            separator = defaults.separator,
+            prefix = defaults.prefix,
+            postfix = defaults.postfix,
+            limit = defaults.limit,
+            truncated = defaults.truncated,
+            transform = defaults.transform
+        } = config;
 
-    while (this.iterator.hasNext()) {
-        count++;
-        const item = this.iterator.next();
-        if (count > 1) {
-            result += separator;
+        let result = `${value}${prefix}`;
+        let count = 0;
+
+        while (this.iterator.hasNext()) {
+            count++;
+            const item = this.iterator.next();
+            if (count > 1) {
+                result += separator;
+            }
+            if (limit < 0 || count <= limit) {
+                result += transform != null
+                    ? transform(item)
+                    : String(item);
+            } else {
+                break;
+            }
         }
-        if (limit < 0 || count <= limit) {
-            result += transform != null
-                ? transform(item)
-                : String(item);
-        } else {
-            break;
+
+        if (limit >= 0 && count > limit) {
+            result += truncated;
         }
+
+        result += postfix;
+        return result;
     }
 
-    if (limit >= 0 && count > limit) {
-        result += truncated;
+    /**
+     * Joins all elements of the sequence into a string with the given configuration.
+     *
+     * @param {JoinConfig<T>} config
+     * @returns {string}
+     */
+    joinTo<T>(this: Sequence<T>, config: JoinConfig<T> = defaults): string {
+        return this.joinToString(config);
     }
 
-    result += postfix;
-    return result;
 }
-
-export default joinToString;
