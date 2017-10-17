@@ -7,8 +7,8 @@ export class FilterNotNull {
      *
      * @returns {Sequence<T>}
      */
-    filterNotNull<T>(this: Sequence<T>): Sequence<T> {
-        return this.filter(it => it !== null);
+    filterNotNull<T>(this: Sequence<T | null>): Sequence<T> {
+        return this.filter(it => it !== null) as Sequence<T>;
     }
 
 }
