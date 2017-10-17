@@ -154,3 +154,22 @@ export function generateSequence<T>(a: any, b?: any): Sequence<T> {
         ? createSequence<T>(new GeneratorSeedIterator(seed, b))
         : emptySequence<T>();
 }
+
+export function range(startInclusive: number, endExclusive: number, step: number = 1): Sequence<number> {
+    if (startInclusive >= endExclusive) {
+        throw new Error(`startInclusive [${startInclusive}] must be lower then endExclusive [${endExclusive}]`);
+    }
+    if (startInclusive === endExclusive - 1) {
+        return emptySequence();
+    }
+    let current = startInclusive;
+    return generateSequence(() => {
+        try {
+            return current < endExclusive
+                ? current
+                : undefined;
+        } finally {
+            current += step;
+        }
+    });
+}

@@ -1,6 +1,6 @@
 {
   "name": "sequency",
-  "version": "0.15.0",
+  "version": "0.16.0",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequency.js",

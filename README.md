@@ -39,13 +39,22 @@ Sequency is centered around a single class called `Sequence` to process any kind
 Sequences can be created by utilizing one of the following functions:
 
 ```js
-import {sequenceOf, asSequence, emptySequence, generateSequence} from 'sequency';
+import {
+    asSequence,
+    sequenceOf, 
+    emptySequence, 
+    range,
+    generateSequence,
+    extendSequence
+} from 'sequency';
 ```
 
 - `sequenceOf` accepts one or many values and returns a new sequence.
 - `asSequence` accepts an iterable (e.g. an array, set or map) and returns a new sequence.
 - `emptySequence` returns a new empty sequence.
+- `range` returns as number sequence consisting of all numbers between `startInclusive` and `endExclusive`.
 - `generateSequence` returns a sequence generated from the given generator function.
+- `extendSequence` allows extending sequences with user-defined operations (see [example](https://github.com/winterbe/sequency/blob/ac3dbb0f212bb08783d970472c7a76dc921b60ba/test/extendSequence.test.ts)).
 
 Each `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions (e.g. `filter`, `map`, `sorted`) return a new sequence, thus enabling method chaining. Terminal functions (e.g. `toArray`, `groupBy`, `findLast`) return an arbitrary result. Detailed descriptions of all operations are available in the [API docs](https://winterbe.github.io/sequency/).
 
