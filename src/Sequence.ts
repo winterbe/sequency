@@ -155,17 +155,17 @@ export function generateSequence<T>(a: any, b?: any): Sequence<T> {
         : emptySequence<T>();
 }
 
-export function range(startInclusive: number, endExclusive: number, step: number = 1): Sequence<number> {
-    if (startInclusive >= endExclusive) {
-        throw new Error(`startInclusive [${startInclusive}] must be lower then endExclusive [${endExclusive}]`);
+export function range(start: number, endInclusive: number, step: number = 1): Sequence<number> {
+    if (start > endInclusive) {
+        throw new Error(`start [${start}] must be lower then endInclusive [${endInclusive}]`);
     }
-    if (startInclusive === endExclusive - 1) {
+    if (start === endInclusive) {
         return emptySequence();
     }
-    let current = startInclusive;
+    let current = start;
     return generateSequence(() => {
         try {
-            return current < endExclusive
+            return current <= endInclusive
                 ? current
                 : undefined;
         } finally {
