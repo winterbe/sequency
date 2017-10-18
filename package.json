@@ -63,7 +63,7 @@
   "size-limit": [
     {
       "path": "lib-umd/sequency.min.js",
-      "limit": "5 KB"
+      "limit": "9 KB"
     }
   ],
   "keywords": [
