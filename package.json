@@ -1,6 +1,6 @@
 {
   "name": "sequency",
-  "version": "0.17.0",
+  "version": "0.18.0",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequency.js",
@@ -15,7 +15,7 @@
     "docs-publish": "yarn run docs && touch docs/.nojekyll && gh-pages -d docs -t",
     "build": "rimraf lib && rimraf lib-umd && yarn run lint && tsc && yarn test && webpack && size-limit",
     "build-prod": "yarn run build && yarn run docs-publish",
-    "prepublishOnly": "yarn run build-prod"
+    "prepublishOnly": "yarn run build"
   },
   "author": "Benjamin Winterberg",
   "homepage": "http://winterbe.com",
