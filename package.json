@@ -15,7 +15,7 @@
     "docs-publish": "yarn run docs && touch docs/.nojekyll && gh-pages -d docs -t",
     "build": "rimraf lib && rimraf lib-umd && yarn run lint && tsc && yarn test && webpack && size-limit",
     "build-prod": "yarn run build && yarn run docs-publish",
-    "prepublishOnly": "yarn run build"
+    "prepublishOnly": "yarn run build-prod"
   },
   "author": "Benjamin Winterberg",
   "homepage": "http://winterbe.com",

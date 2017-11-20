@@ -58,7 +58,7 @@ function compareByDescending<T>(keyOrSelector: any): Comparator<T> {
 function asSelector<T>(keyOrSelector: (item: T) => any | string): (item: T) => any {
     return typeof keyOrSelector === "function"
         ? keyOrSelector
-        : (item: T) => (item as any)[keyOrSelector];
+        : (item: T) => (item as any)[keyOrSelector as string];
 }
 
 function naturalCompare<T>(a: T, b: T): number {
