@@ -3,7 +3,7 @@ import Sequence, {createSequence} from "./Sequence";
 
 class MapIterator<S, T> implements SequenceIterator<T> {
     constructor(
-        private readonly transform: (S) => T,
+        private readonly transform: (item: S) => T,
         private readonly iterator: SequenceIterator<S>
     ) {}
 

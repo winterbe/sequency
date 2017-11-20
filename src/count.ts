@@ -9,7 +9,7 @@ export class Count {
      * @param {(T) => boolean} predicate
      * @returns {number}
      */
-    count<T>(this: Sequence<T>, predicate?: (T) => boolean): number {
+    count<T>(this: Sequence<T>, predicate?: (item: T) => boolean): number {
         let num = 0;
         if (predicate == null) {
             while (this.iterator.hasNext()) {

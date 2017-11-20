@@ -5,7 +5,7 @@ class FlatMapIterator<S, T> implements SequenceIterator<T> {
     private current: SequenceIterator<T> | undefined;
 
     constructor(
-        private readonly transform: (S) => Sequence<T>,
+        private readonly transform: (item: S) => Sequence<T>,
         private readonly iterator: SequenceIterator<S>
     ) {}
 

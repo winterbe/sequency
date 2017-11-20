@@ -8,7 +8,7 @@ export class Any {
      * @param {(T) => boolean} predicate
      * @returns {boolean}
      */
-    any<T>(this: Sequence<T>, predicate?: (T) => boolean): boolean {
+    any<T>(this: Sequence<T>, predicate?: (item: T) => boolean): boolean {
         if (predicate == null) {
             return this.iterator.hasNext();
         }

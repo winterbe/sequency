@@ -6,7 +6,7 @@ class FilterIterator<T> implements SequenceIterator<T> {
     private done = false;
 
     constructor(
-        private readonly predicate: (T) => boolean,
+        private readonly predicate: (item: T) => boolean,
         private readonly iterator: SequenceIterator<T>
     ) {}
 
@@ -45,7 +45,7 @@ export class Filter {
      * @param {(T) => boolean} predicate
      * @returns {Sequence<T>}
      */
-    filter<T>(this: Sequence<T>, predicate: (T) => boolean): Sequence<T> {
+    filter<T>(this: Sequence<T>, predicate: (item: T) => boolean): Sequence<T> {
         return createSequence(new FilterIterator(predicate, this.iterator));
     }
 

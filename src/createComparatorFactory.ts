@@ -1,14 +1,6 @@
 import ComparatorFactory from "./ComparatorFactory";
 import Comparator from "./Comparator";
 
-const naturalCompare = (a, b) => a < b ? -1 : a > b ? 1 : 0;
-
-type Selector<T> = (value: T) => any;
-
-const asSelector = <T>(keyOrSelector: any): Selector<T> => typeof keyOrSelector === "function"
-    ? keyOrSelector
-    : (value: T) => value[keyOrSelector];
-
 function compare<T>(comparison: (a: T, b: T) => number): Comparator<T> {
     return Object.assign(comparison, {
         reversed(): Comparator<T> {
@@ -63,12 +55,22 @@ function compareByDescending<T>(keyOrSelector: any): Comparator<T> {
     );
 }
 
+function asSelector<T>(keyOrSelector: (item: T) => any | string): (item: T) => any {
+    return typeof keyOrSelector === "function"
+        ? keyOrSelector
+        : (item: T) => (item as any)[keyOrSelector];
+}
+
+function naturalCompare<T>(a: T, b: T): number {
+    return a < b ? -1 : a > b ? 1 : 0;
+}
+
 function naturalOrder<T>(): Comparator<T> {
     return compare(naturalCompare);
 }
 
 function reverseOrder<T>(): Comparator<T> {
-    return compare(naturalCompare).reversed();
+    return compare<T>(naturalCompare).reversed();
 }
 
 function nullsLast<T>(): Comparator<T> {
@@ -94,4 +96,5 @@ function createComparatorFactory<T>(): ComparatorFactory<T> {
         nullsLast
     };
 }
+
 export default createComparatorFactory;

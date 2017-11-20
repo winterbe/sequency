@@ -12,7 +12,7 @@
     "noImplicitReturns": true,
     "noImplicitUseStrict": true,
     "noImplicitThis": true,
-    "noImplicitAny": false
+    "noImplicitAny": true
   },
   "include": [
     "src"

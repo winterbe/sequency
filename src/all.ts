@@ -8,7 +8,7 @@ export class All {
      * @param {(T) => boolean} predicate
      * @returns {boolean}
      */
-    all<T>(this: Sequence<T>, predicate: (T) => boolean): boolean {
+    all<T>(this: Sequence<T>, predicate: (item: T) => boolean): boolean {
         while (this.iterator.hasNext()) {
             const item = this.iterator.next();
             if (!predicate(item)) {

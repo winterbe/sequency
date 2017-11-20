@@ -9,7 +9,7 @@ export class First {
      * @param {(T) => boolean} predicate
      * @returns {T}
      */
-    first<T>(this: Sequence<T>, predicate?: (T) => boolean): T {
+    first<T>(this: Sequence<T>, predicate?: (item: T) => boolean): T {
         if (predicate != null) {
             return this.filter(predicate).first();
         }
