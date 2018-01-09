@@ -7,9 +7,8 @@
 ---
 
 <p align="center">
-<strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a> and <a href="https://twitter.com/winterbe_">feedback on Twitter</a>! Thanks. ★★★</strong>
+<strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a>, <a href="https://twitter.com/winterbe_">follow on Twitter</a> or <a href="https://www.paypal.me/winterbe">donate</a> to support my work! Thanks. ★★★</strong>
 </p>
-
 ---
 
 ## About Sequency
