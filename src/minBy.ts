@@ -12,12 +12,11 @@ export class MinBy {
     minBy<T, R>(this: Sequence<T>, selector: (value: T) => R): T | null {
         let min: T | null = null;
         let minSelected: R | null = null;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            const value = selector(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            const value = selector(item.value);
             if (minSelected == null || value < minSelected) {
                 minSelected = value;
-                min = item;
+                min = item.value;
             }
         }
         return min;

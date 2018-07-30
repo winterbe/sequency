@@ -11,8 +11,8 @@ export class ToArray {
      */
     toArray<T>(this: Sequence<T>, array?: Array<T>): Array<T> {
         const result: Array<T> = array || [];
-        while (this.iterator.hasNext()) {
-            result.push(this.iterator.next());
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result.push(item.value);
         }
         return result;
     }

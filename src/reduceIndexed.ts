@@ -12,14 +12,14 @@ export class ReduceIndexed {
      * @returns {S}
      */
     reduceIndexed<S, T extends S>(this: Sequence<T>, operation: (index: number, acc: S, element: T) => S): S {
-        if (!this.iterator.hasNext()) {
+        const first = this.iterator.next();
+        if (first.done) {
             throw new Error("Cannot reduce empty sequence");
         }
         let index = 1;
-        let result: S = this.iterator.next();
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            result = operation(index, result, item);
+        let result: S = first.value;
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result = operation(index, result, item.value);
             index++;
         }
         return result;

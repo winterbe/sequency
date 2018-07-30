@@ -10,10 +10,9 @@ export class MinWith {
      */
     minWith<T>(this: Sequence<T>, compare: (a: T, b: T) => number): T | null {
         let min: T | null = null;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (min == null || compare(item, min) < 0) {
-                min = item;
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (min == null || compare(item.value, min) < 0) {
+                min = item.value;
             }
         }
         return min;

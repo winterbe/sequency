@@ -9,9 +9,8 @@ export class All {
      * @returns {boolean}
      */
     all<T>(this: Sequence<T>, predicate: (item: T) => boolean): boolean {
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (!predicate(item)) {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (!predicate(item.value)) {
                 return false;
             }
         }

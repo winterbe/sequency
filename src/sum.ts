@@ -9,8 +9,8 @@ export class Sum {
      */
     sum(this: Sequence<number>): number {
         let result = 0;
-        while (this.iterator.hasNext()) {
-            result += this.iterator.next();
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result += item.value;
         }
         return result;
     }

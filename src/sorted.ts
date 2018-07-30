@@ -1,5 +1,4 @@
 import Sequence, {createSequence} from "./Sequence";
-import {IterableIterator} from "./SequenceIterator";
 import ComparatorFactory from "./ComparatorFactory";
 import Comparator from "./Comparator";
 import createComparatorFactory from "./createComparatorFactory";
@@ -14,9 +13,8 @@ export class Sorted {
      */
     sorted<T>(this: Sequence<T>, composeComparator?: (factory: ComparatorFactory<T>) => Comparator<T>): Sequence<T> {
         const result: Array<T> = [];
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            result.push(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result.push(item.value);
         }
         if (composeComparator == null) {
             result.sort();
@@ -25,7 +23,8 @@ export class Sorted {
             const comparator = composeComparator(factory);
             result.sort(comparator);
         }
-        return createSequence(new IterableIterator(result));
+        const iterator = result[Symbol.iterator]();
+        return createSequence(iterator);
     }
 
 }

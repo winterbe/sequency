@@ -14,14 +14,14 @@ export class Single {
         if (predicate != null) {
             return this.filter(predicate).single();
         }
-        if (!this.iterator.hasNext()) {
+        const first = this.iterator.next();
+        if (first.done) {
             throw new Error("No such element");
         }
-        const item = this.iterator.next();
-        if (this.iterator.hasNext()) {
+        if (!this.iterator.next().done) {
             throw new Error("Expect single element");
         }
-        return item;
+        return first.value;
     }
 
 }

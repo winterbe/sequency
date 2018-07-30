@@ -1,39 +1,26 @@
-import SequenceIterator from "./SequenceIterator";
 import Sequence, {createSequence} from "./Sequence";
 
-class FlatMapIterator<S, T> implements SequenceIterator<T> {
-    private current: SequenceIterator<T> | undefined;
+class FlatMapIterator<S, T> implements Iterator<T> {
+    private current: Iterator<T> | undefined;
 
-    constructor(
-        private readonly transform: (item: S) => Sequence<T>,
-        private readonly iterator: SequenceIterator<S>
-    ) {}
-
-    next(): T {
-        this.processNext();
-        return this.current!.next();
+    constructor(private readonly transform: (item: S) => Sequence<T>,
+                private readonly iterator: Iterator<S>) {
     }
 
-    hasNext(): boolean {
-        this.processNext();
-        return this.current != null;
-    }
-
-    private processNext() {
+    next(value?: any): IteratorResult<T> {
         if (this.current != null) {
-            if (this.current.hasNext()) {
-                return;
-            } else {
-                this.current = undefined;
+            const item = this.current.next();
+            if (!item.done) {
+                return item;
             }
         }
-        while (this.current == null && this.iterator.hasNext()) {
-            const element = this.iterator.next();
-            const sequence = this.transform(element);
-            if (sequence.iterator.hasNext()) {
-                this.current = sequence.iterator;
-            }
+        const next = this.iterator.next();
+        if (!next.done) {
+            const sequence = this.transform(next.value);
+            this.current = sequence.iterator;
+            return this.next();
         }
+        return {done: true, value: undefined as any};
     }
 }
 

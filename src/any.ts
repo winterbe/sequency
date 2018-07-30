@@ -10,11 +10,10 @@ export class Any {
      */
     any<T>(this: Sequence<T>, predicate?: (item: T) => boolean): boolean {
         if (predicate == null) {
-            return this.iterator.hasNext();
+            return !this.iterator.next().done;
         }
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (predicate(item)) {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (predicate(item.value)) {
                 return true;
             }
         }

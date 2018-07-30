@@ -1,19 +1,15 @@
-import SequenceIterator from "./SequenceIterator";
 import Sequence, {createSequence} from "./Sequence";
 
-class MapIterator<S, T> implements SequenceIterator<T> {
-    constructor(
-        private readonly transform: (item: S) => T,
-        private readonly iterator: SequenceIterator<S>
-    ) {}
-
-    hasNext(): boolean {
-        return this.iterator.hasNext();
+class MapIterator<S, T> implements Iterator<T> {
+    constructor(private readonly transform: (item: S) => T,
+                private readonly iterator: Iterator<S>) {
     }
 
-    next(): T {
+    next(value?: any): IteratorResult<T> {
         const item = this.iterator.next();
-        return this.transform(item);
+        return item.done
+            ? {done: true, value: undefined as any}
+            : {done: false, value: this.transform(item.value)};
     }
 }
 

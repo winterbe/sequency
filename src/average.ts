@@ -10,8 +10,8 @@ export class Average {
     average(this: Sequence<number>): number {
         let sum = 0;
         let count = 0;
-        while (this.iterator.hasNext()) {
-            sum += this.iterator.next();
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            sum += item.value;
             count++;
         }
         return count === 0

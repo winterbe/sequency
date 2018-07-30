@@ -1,20 +1,18 @@
 import Sequence, {createSequence} from "./Sequence";
-import SequenceIterator from "./SequenceIterator";
 
-class ZipIterator<T, S> implements SequenceIterator<[T, S]> {
-    constructor(
-        private readonly iterator1: SequenceIterator<T>,
-        private readonly iterator2: SequenceIterator<S>
-    ) {}
-
-    hasNext(): boolean {
-        return this.iterator1.hasNext() && this.iterator2.hasNext();
+class ZipIterator<T, S> implements Iterator<[T, S]> {
+    constructor(private readonly iterator1: Iterator<T>,
+                private readonly iterator2: Iterator<S>) {
     }
 
-    next(): [T, S] {
+    next(value?: any): IteratorResult<[T, S]> {
         const item1 = this.iterator1.next();
         const item2 = this.iterator2.next();
-        return [item1, item2];
+        if (item1.done || item2.done) {
+            return {done: true, value: undefined as any};
+        } else {
+            return {done: false, value: [item1.value, item2.value]};
+        }
     }
 
 }

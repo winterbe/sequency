@@ -12,14 +12,12 @@ export class Count {
     count<T>(this: Sequence<T>, predicate?: (item: T) => boolean): number {
         let num = 0;
         if (predicate == null) {
-            while (this.iterator.hasNext()) {
-                this.iterator.next();
+            for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
                 num++;
             }
         } else {
-            while (this.iterator.hasNext()) {
-                const item = this.iterator.next();
-                if (predicate(item)) {
+            for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+                if (predicate(item.value)) {
                     num++;
                 }
             }

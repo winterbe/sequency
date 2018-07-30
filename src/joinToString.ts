@@ -42,16 +42,15 @@ export class JoinToString {
         let result = `${value}${prefix}`;
         let count = 0;
 
-        while (this.iterator.hasNext()) {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
             count++;
-            const item = this.iterator.next();
             if (count > 1) {
                 result += separator;
             }
             if (limit < 0 || count <= limit) {
                 result += transform != null
-                    ? transform(item)
-                    : String(item);
+                    ? transform(item.value)
+                    : String(item.value);
             } else {
                 break;
             }

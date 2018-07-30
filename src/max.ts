@@ -9,10 +9,9 @@ export class Max {
      */
     max<T>(this: Sequence<T>): T | null {
         let result: T | null = null;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (result == null || item > result) {
-                result = item;
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (result == null || item.value > result) {
+                result = item.value;
             }
         }
         return result;

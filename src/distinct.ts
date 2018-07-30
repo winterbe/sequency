@@ -1,38 +1,19 @@
 import Sequence, {createSequence} from "./Sequence";
-import SequenceIterator from "./SequenceIterator";
 
-class DistinctIterator<T> implements SequenceIterator<T> {
+class DistinctIterator<T> implements Iterator<T> {
     private items: Array<T> = [];
-    private nextItem: T | undefined = undefined;
-    private done: boolean = false;
 
-    constructor(private readonly iterator: SequenceIterator<T>) {}
-
-    hasNext(): boolean {
-        this.processNext();
-        return !this.done;
+    constructor(private readonly iterator: Iterator<T>) {
     }
 
-    next(): T {
-        this.processNext();
-        const result = this.nextItem!;
-        this.nextItem = undefined;
-        return result;
-    }
-
-    processNext() {
-        if (this.nextItem !== undefined || this.done) {
-            return;
-        }
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (this.items.indexOf(item) < 0) {
-                this.nextItem = item;
-                this.items.push(item);
-                return;
+    next(value?: any): IteratorResult<T> {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (this.items.indexOf(item.value) < 0) {
+                this.items.push(item.value);
+                return {done: false, value: item.value};
             }
         }
-        this.done = true;
+        return {done: true, value: undefined as any};
     }
 }
 

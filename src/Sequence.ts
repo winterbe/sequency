@@ -1,4 +1,3 @@
-import SequenceIterator, {GeneratorIterator, GeneratorSeedIterator, IterableIterator} from "./SequenceIterator";
 import {All} from "./all";
 import {Any} from "./any";
 import {AsIterable} from "./asIterable";
@@ -69,6 +68,8 @@ import {ToSet} from "./toSet";
 import {Unzip} from "./unzip";
 import {WithIndex} from "./withIndex";
 import {Zip} from "./zip";
+import GeneratorIterator from "./GeneratorIterator";
+import GeneratorSeedIterator from "./GeneratorSeedIterator";
 
 /**
  * @hidden
@@ -87,11 +88,11 @@ export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, A
  * when it's not necessary. Sequences can be iterated only once.
  */
 export default interface Sequence<T> extends SequenceOperators<T> {
-    readonly iterator: SequenceIterator<T>;
+    readonly iterator: Iterator<T>;
 }
 
 class SequenceImpl<T> {
-    constructor(readonly iterator: SequenceIterator<T>) {
+    constructor(readonly iterator: Iterator<T>) {
     }
 }
 
@@ -127,10 +128,11 @@ export function asSequence<T>(iterable: Iterable<T>): Sequence<T> {
     if (iterable[Symbol.iterator] == null) {
         throw new Error("Cannot create sequence for non-iterable input: " + iterable);
     }
-    return createSequence<T>(new IterableIterator(iterable));
+    const iterator = iterable[Symbol.iterator]();
+    return createSequence<T>(iterator);
 }
 
-export function createSequence<T>(iterator: SequenceIterator<T>): Sequence<T> {
+export function createSequence<T>(iterator: Iterator<T>): Sequence<T> {
     return new SequenceImpl(iterator) as any;
 }
 

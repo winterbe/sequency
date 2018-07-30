@@ -1,4 +1,4 @@
-import {asSequence, generateSequence, sequenceOf} from "../src/Sequence";
+import {generateSequence} from "../src/Sequence";
 
 describe("generateSequence", () => {
     it("should generate sequence", () => {

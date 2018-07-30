@@ -12,9 +12,10 @@ export class FirstOrNull {
         if (predicate != null) {
             return this.filter(predicate).firstOrNull();
         }
-        return this.iterator.hasNext()
-            ? this.iterator.next()
-            : null;
+        const item = this.iterator.next();
+        return item.done
+            ? null
+            : item.value;
     }
 
     /**

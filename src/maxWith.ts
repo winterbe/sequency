@@ -10,10 +10,9 @@ export class MaxWith {
      */
     maxWith<T>(this: Sequence<T>, compare: (a: T, b: T) => number): T | null {
         let max: T | null = null;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (max == null || compare(item, max) > 0) {
-                max = item;
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (max == null || compare(item.value, max) > 0) {
+                max = item.value;
             }
         }
         return max;

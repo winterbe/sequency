@@ -12,10 +12,9 @@ export class ElementAtOrElse {
      */
     elementAtOrElse<T>(this: Sequence<T>, index: number, defaultValue: (index: number) => T): T {
         let i = 0;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
             if (i === index) {
-                return item;
+                return item.value;
             }
             i++;
         }

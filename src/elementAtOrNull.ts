@@ -11,10 +11,9 @@ export class ElementAtOrNull {
      */
     elementAtOrNull<T>(this: Sequence<T>, index: number): T | null {
         let i = 0;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
             if (i === index) {
-                return item;
+                return item.value;
             }
             i++;
         }

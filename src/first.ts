@@ -13,10 +13,11 @@ export class First {
         if (predicate != null) {
             return this.filter(predicate).first();
         }
-        if (!this.iterator.hasNext()) {
+        const item = this.iterator.next();
+        if (item.done) {
             throw new Error("No such element");
         }
-        return this.iterator.next();
+        return item.value;
     }
 
 }

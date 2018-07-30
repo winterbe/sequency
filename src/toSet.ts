@@ -11,9 +11,8 @@ export class ToSet {
      */
     toSet<T>(this: Sequence<T>, set?: Set<T>): Set<T> {
         const result = set || new Set();
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            result.add(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result.add(item.value);
         }
         return result;
     }

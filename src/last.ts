@@ -13,14 +13,16 @@ export class Last {
         if (predicate != null) {
             return this.filter(predicate).last();
         }
-        if (!this.iterator.hasNext()) {
+        let result: T;
+        let empty = true;
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result = item.value;
+            empty = false;
+        }
+        if (empty) {
             throw new Error("No such element");
         }
-        let item: T;
-        while (this.iterator.hasNext()) {
-            item = this.iterator.next();
-        }
-        return item!;
+        return result!;
     }
 
 }

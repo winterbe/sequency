@@ -10,14 +10,13 @@ export class GroupBy {
      */
     groupBy<T, K>(this: Sequence<T>, keySelector: (value: T) => K): Map<K, Array<T>> {
         const result = new Map<K, Array<T>>();
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            const key = keySelector(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            const key = keySelector(item.value);
             const array = result.get(key);
             if (array == null) {
-                result.set(key, [item]);
+                result.set(key, [item.value]);
             } else {
-                array.push(item);
+                array.push(item.value);
             }
         }
         return result;

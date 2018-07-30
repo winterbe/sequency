@@ -1,21 +1,21 @@
 import Sequence, {createSequence, isSequence} from "./Sequence";
-import SequenceIterator, {IterableIterator} from "./SequenceIterator";
 
-class AppendIterator<T> implements SequenceIterator<T> {
-    constructor(private readonly first: SequenceIterator<T>,
-                private readonly second: SequenceIterator<T>) {
+class AppendIterator<T> implements Iterator<T> {
+    constructor(private readonly first: Iterator<T>,
+                private readonly second: Iterator<T>) {
     }
 
-    hasNext(): boolean {
-        return this.first.hasNext() || this.second.hasNext();
+    next(value?: any): IteratorResult<T> {
+        const item1 = this.first.next();
+        if (!item1.done) {
+            return {done: false, value: item1.value};
+        }
+        const item2 = this.second.next();
+        if (!item2.done) {
+            return {done: false, value: item2.value};
+        }
+        return {done: true, value: undefined as any};
     }
-
-    next(): T {
-        return this.first.hasNext()
-            ? this.first.next()
-            : this.second.next();
-    }
-
 }
 
 export class Plus {
@@ -48,9 +48,11 @@ export class Plus {
         if (isSequence(data)) {
             return createSequence(new AppendIterator(this.iterator, data.iterator));
         } else if (data instanceof Array) {
-            return createSequence(new AppendIterator(this.iterator, new IterableIterator(data)));
+            const iterator = data[Symbol.iterator]();
+            return createSequence(new AppendIterator(this.iterator, iterator));
         } else {
-            return createSequence(new AppendIterator(this.iterator, new IterableIterator([data])));
+            const iterator = [data][Symbol.iterator]();
+            return createSequence(new AppendIterator(this.iterator, iterator));
         }
     }
 

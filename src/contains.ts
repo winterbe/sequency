@@ -9,9 +9,8 @@ export class Contains {
      * @returns {boolean}
      */
     contains<T>(this: Sequence<T>, element: T): boolean {
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (element === item) {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (element === item.value) {
                 return true;
             }
         }

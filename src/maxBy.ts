@@ -12,12 +12,11 @@ export class MaxBy {
     maxBy<T, R>(this: Sequence<T>, selector: (value: T) => R): T | null {
         let max: T | null = null;
         let maxSelected: R | null = null;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            const value = selector(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            const value = selector(item.value);
             if (maxSelected == null || value > maxSelected) {
                 maxSelected = value;
-                max = item;
+                max = item.value;
             }
         }
         return max;

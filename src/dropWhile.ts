@@ -1,46 +1,24 @@
 import Sequence, {createSequence} from "./Sequence";
-import SequenceIterator from "./SequenceIterator";
 
-class DropWhileIterator<T> implements SequenceIterator<T> {
-    private nextItem: T | undefined;
-    private done = false;
+class DropWhileIterator<T> implements Iterator<T> {
     private dropping = true;
 
-    constructor(
-        private readonly iterator: SequenceIterator<T>,
-        private readonly predicate: (item: T) => boolean
-    ) {}
-
-    hasNext(): boolean {
-        this.processNext();
-        return !this.done;
+    constructor(private readonly iterator: Iterator<T>,
+                private readonly predicate: (item: T) => boolean) {
     }
 
-    next(): T {
-        this.processNext();
-        const result = this.nextItem!;
-        this.nextItem = undefined;
-        return result;
-    }
-
-    private processNext() {
-        if (this.done || this.nextItem !== undefined) {
-            return;
-        }
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
+    next(value?: any): IteratorResult<T> {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
             if (!this.dropping) {
-                this.nextItem = item;
-                return;
+                return {done: false, value: item.value};
             }
-            const result = this.predicate(item);
+            const result = this.predicate(item.value);
             if (!result) {
                 this.dropping = false;
-                this.nextItem = item;
-                return;
+                return {done: false, value: item.value};
             }
         }
-        this.done = true;
+        return {done: true, value: undefined as any};
     }
 }
 

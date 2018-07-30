@@ -11,9 +11,8 @@ export class IndexOfFirst {
      */
     indexOfFirst<T>(this: Sequence<T>, predicate: (value: T) => boolean): number {
         let index = 0;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (predicate(item)) {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (predicate(item.value)) {
                 return index;
             }
             index++;

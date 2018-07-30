@@ -15,13 +15,12 @@ export class Chunk {
         }
         const result: Array<Array<T>> = [];
         let index = 0;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
             const chunkIndex = Math.floor(index / chunkSize);
             if (result[chunkIndex] == null) {
-                result[chunkIndex] = [item];
+                result[chunkIndex] = [item.value];
             } else {
-                result[chunkIndex].push(item);
+                result[chunkIndex].push(item.value);
             }
             index++;
         }

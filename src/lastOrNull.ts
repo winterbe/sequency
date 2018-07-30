@@ -12,11 +12,11 @@ export class LastOrNull {
         if (predicate != null) {
             return this.filter(predicate).lastOrNull();
         }
-        let item: T | null = null;
-        while (this.iterator.hasNext()) {
-            item = this.iterator.next();
+        let result: T | null = null;
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result = item.value;
         }
-        return item;
+        return result;
     }
 
     /**

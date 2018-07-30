@@ -14,14 +14,14 @@ export class SingleOrNull {
         if (predicate != null) {
             return this.filter(predicate).singleOrNull();
         }
-        if (!this.iterator.hasNext()) {
+        const first = this.iterator.next();
+        if (first.done) {
             return null;
         }
-        const item = this.iterator.next();
-        if (this.iterator.hasNext()) {
+        if (!this.iterator.next().done) {
             return null;
         }
-        return item;
+        return first.value;
     }
 
 }

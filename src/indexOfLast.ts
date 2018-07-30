@@ -12,9 +12,8 @@ export class IndexOfLast {
     indexOfLast<T>(this: Sequence<T>, predicate: (value: T) => boolean): number {
         let index = 0;
         let result = -1;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (predicate(item)) {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (predicate(item.value)) {
                 result = index;
             }
             index++;

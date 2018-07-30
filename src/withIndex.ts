@@ -1,20 +1,25 @@
 import Sequence, {createSequence} from "./Sequence";
 import IndexedValue from "./IndexedValue";
-import SequenceIterator from "./SequenceIterator";
 
-class IndexIterator<T> implements SequenceIterator<IndexedValue<T>> {
+class IndexIterator<T> implements Iterator<IndexedValue<T>> {
     private index = -1;
 
-    constructor(private readonly iterator: SequenceIterator<T>) {}
-
-    hasNext(): boolean {
-        return this.iterator.hasNext();
+    constructor(private readonly iterator: Iterator<T>) {
     }
 
-    next(): IndexedValue<T> {
-        const value = this.iterator.next();
+    next(value?: any): IteratorResult<IndexedValue<T>> {
+        const item = this.iterator.next();
+        if (item.done) {
+            return {done: true, value: undefined as any};
+        }
         this.index++;
-        return {index: this.index, value};
+        return {
+            done: false,
+            value: {
+                index: this.index,
+                value: item.value
+            }
+        };
     }
 }
 

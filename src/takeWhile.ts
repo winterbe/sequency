@@ -1,40 +1,19 @@
 import Sequence, {createSequence} from "./Sequence";
-import SequenceIterator from "./SequenceIterator";
 
-class TakeWhileIterator<T> implements SequenceIterator<T> {
-    private nextItem: T | undefined;
-    private done = false;
-
-    constructor(
-        private readonly iterator: SequenceIterator<T>,
-        private readonly predicate: (item: T) => boolean
-    ) {}
-
-    hasNext(): boolean {
-        this.processNext();
-        return !this.done;
+class TakeWhileIterator<T> implements Iterator<T> {
+    constructor(private readonly iterator: Iterator<T>,
+                private readonly predicate: (item: T) => boolean) {
     }
 
-    next(): T {
-        this.processNext();
-        const result = this.nextItem!;
-        this.nextItem = undefined;
-        return result;
-    }
-
-    private processNext() {
-        if (this.done || this.nextItem !== undefined) {
-            return;
-        }
-        if (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            const result = this.predicate(item);
+    next(value?: any): IteratorResult<T> {
+        const item = this.iterator.next();
+        if (!item.done) {
+            const result = this.predicate(item.value);
             if (result) {
-                this.nextItem = item;
-                return;
+                return {done: false, value: item.value};
             }
         }
-        this.done = true;
+        return {done: true, value: undefined as any};
     }
 }
 

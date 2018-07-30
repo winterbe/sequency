@@ -10,9 +10,8 @@ export class IndexOf {
      */
     indexOf<T>(this: Sequence<T>, element: T): number {
         let index = 0;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (item === element) {
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (element === item.value) {
                 return index;
             }
             index++;

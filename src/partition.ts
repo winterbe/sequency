@@ -12,12 +12,11 @@ export class Partition {
     partition<T>(this: Sequence<T>, predicate: (value: T) => boolean): { "true": Array<T>, "false": Array<T> } {
         const arrayTrue: Array<T> = [];
         const arrayFalse: Array<T> = [];
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            if (predicate(item)) {
-                arrayTrue.push(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            if (predicate(item.value)) {
+                arrayTrue.push(item.value);
             } else {
-                arrayFalse.push(item);
+                arrayFalse.push(item.value);
             }
         }
         return { "true": arrayTrue, "false": arrayFalse };

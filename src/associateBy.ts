@@ -48,10 +48,9 @@ export class AssociateBy<T> {
         const transform = valueTransform != null
             ? valueTransform
             : (value: T) => value;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            const key = selector(item);
-            const value = transform(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            const key = selector(item.value);
+            const value = transform(item.value);
             result.set(key, value);
         }
         return result;

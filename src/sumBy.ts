@@ -10,9 +10,8 @@ export class SumBy {
      */
     sumBy<T>(this: Sequence<T>, selector: (value: T) => number): number {
         let result = 0;
-        while (this.iterator.hasNext()) {
-            const item = this.iterator.next();
-            result += selector(item);
+        for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
+            result += selector(item.value);
         }
         return result;
     }
