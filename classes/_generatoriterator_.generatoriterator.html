@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IterableIterator | Sequency</title>
+	<title>GeneratorIterator | Sequency</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_sequenceiterator_.html">&quot;SequenceIterator&quot;</a>
+					<a href="../modules/_generatoriterator_.html">&quot;GeneratorIterator&quot;</a>
 				</li>
 				<li>
-					<a href="_sequenceiterator_.iterableiterator.html">IterableIterator</a>
+					<a href="_generatoriterator_.generatoriterator.html">GeneratorIterator</a>
 				</li>
 			</ul>
-			<h1>Class IterableIterator&lt;T&gt;</h1>
+			<h1>Class GeneratorIterator&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
@@ -79,14 +79,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IterableIterator</span>
+						<span class="target">GeneratorIterator</span>
 					</li>
 				</ul>
 			</section>
 			<section class="tsd-panel">
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
-					<li><span class="tsd-signature-type">SequenceIterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li><span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -96,23 +96,19 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_sequenceiterator_.iterableiterator.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_generatoriterator_.generatoriterator.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_sequenceiterator_.iterableiterator.html#done" class="tsd-kind-icon">done</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_sequenceiterator_.iterableiterator.html#iterator" class="tsd-kind-icon">iterator</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_sequenceiterator_.iterableiterator.html#nextitem" class="tsd-kind-icon">next<wbr>Item</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="_generatoriterator_.generatoriterator.html#nextfunction" class="tsd-kind-icon">next<wbr>Function</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sequenceiterator_.iterableiterator.html#hasnext" class="tsd-kind-icon">has<wbr>Next</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_sequenceiterator_.iterableiterator.html#next" class="tsd-kind-icon">next</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_sequenceiterator_.iterableiterator.html#processnext" class="tsd-kind-icon">process<wbr>Next</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_generatoriterator_.generatoriterator.html#next" class="tsd-kind-icon">next</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,22 +120,39 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Iterable<wbr>Iterator<span class="tsd-signature-symbol">(</span>iterable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_sequenceiterator_.iterableiterator.html" class="tsd-signature-type">IterableIterator</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Generator<wbr>Iterator<span class="tsd-signature-symbol">(</span>nextFunction<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_generatoriterator_.generatoriterator.html" class="tsd-signature-type">GeneratorIterator</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/winterbe/sequency/blob/bc440e9/src/SequenceIterator.ts#L13">SequenceIterator.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/winterbe/sequency/blob/cbbc9ab/src/GeneratorIterator.ts#L1">GeneratorIterator.ts:1</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>iterable: <span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>nextFunction: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>
+														<span class="tsd-signature-symbol"> | </span>
+														<span class="tsd-signature-type">null</span>
+														<span class="tsd-signature-symbol"> | </span>
+														<span class="tsd-signature-type">undefined</span>
+													</h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_sequenceiterator_.iterableiterator.html" class="tsd-signature-type">IterableIterator</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_generatoriterator_.generatoriterator.html" class="tsd-signature-type">GeneratorIterator</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -147,86 +160,58 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="done" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> done</h3>
-					<div class="tsd-signature tsd-kind-icon">done<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
+					<a name="nextfunction" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> next<wbr>Function</h3>
+					<div class="tsd-signature tsd-kind-icon">next<wbr>Function<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/winterbe/sequency/blob/bc440e9/src/SequenceIterator.ts#L12">SequenceIterator.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/winterbe/sequency/blob/cbbc9ab/src/GeneratorIterator.ts#L2">GeneratorIterator.ts:2</a></li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="iterator" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> iterator</h3>
-					<div class="tsd-signature tsd-kind-icon">iterator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Iterator</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/winterbe/sequency/blob/bc440e9/src/SequenceIterator.ts#L11">SequenceIterator.ts:11</a></li>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-class tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span>
+											<span class="tsd-signature-symbol"> | </span>
+											<span class="tsd-signature-type">null</span>
+											<span class="tsd-signature-symbol"> | </span>
+											<span class="tsd-signature-type">undefined</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
 						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="nextitem" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> next<wbr>Item</h3>
-					<div class="tsd-signature tsd-kind-icon">next<wbr>Item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/winterbe/sequency/blob/bc440e9/src/SequenceIterator.ts#L13">SequenceIterator.ts:13</a></li>
-						</ul>
-					</aside>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="hasnext" class="tsd-anchor"></a>
-					<h3>has<wbr>Next</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">has<wbr>Next<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/winterbe/sequency/blob/bc440e9/src/SequenceIterator.ts#L19">SequenceIterator.ts:19</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="next" class="tsd-anchor"></a>
 					<h3>next</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+						<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/winterbe/sequency/blob/bc440e9/src/SequenceIterator.ts#L24">SequenceIterator.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/winterbe/sequency/blob/cbbc9ab/src/GeneratorIterator.ts#L5">GeneratorIterator.ts:5</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="processnext" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> process<wbr>Next</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">process<wbr>Next<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/winterbe/sequency/blob/bc440e9/src/SequenceIterator.ts#L31">SequenceIterator.ts:31</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">IteratorResult</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -239,43 +224,25 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_sequenceiterator_.html">"<wbr>Sequence<wbr>Iterator"</a>
+						<a href="../modules/_generatoriterator_.html">"<wbr>Generator<wbr>Iterator"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_sequenceiterator_.generatoriterator.html" class="tsd-kind-icon">Generator<wbr>Iterator</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_sequenceiterator_.generatorseediterator.html" class="tsd-kind-icon">Generator<wbr>Seed<wbr>Iterator</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_sequenceiterator_.iterableiterator.html" class="tsd-kind-icon">Iterable<wbr>Iterator</a>
+						<a href="_generatoriterator_.generatoriterator.html" class="tsd-kind-icon">Generator<wbr>Iterator</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_sequenceiterator_.iterableiterator.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_generatoriterator_.generatoriterator.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_sequenceiterator_.iterableiterator.html#done" class="tsd-kind-icon">done</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_sequenceiterator_.iterableiterator.html#iterator" class="tsd-kind-icon">iterator</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="_sequenceiterator_.iterableiterator.html#nextitem" class="tsd-kind-icon">next<wbr>Item</a>
+								<a href="_generatoriterator_.generatoriterator.html#nextfunction" class="tsd-kind-icon">next<wbr>Function</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_sequenceiterator_.iterableiterator.html#hasnext" class="tsd-kind-icon">has<wbr>Next</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_sequenceiterator_.iterableiterator.html#next" class="tsd-kind-icon">next</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="_sequenceiterator_.iterableiterator.html#processnext" class="tsd-kind-icon">process<wbr>Next</a>
+								<a href="_generatoriterator_.generatoriterator.html#next" class="tsd-kind-icon">next</a>
 							</li>
 						</ul>
 					</li>
