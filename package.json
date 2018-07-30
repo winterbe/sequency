@@ -9,13 +9,16 @@
     "test": "jest",
     "watch": "jest --watch --notify",
     "coverage": "rimraf coverage && jest --coverage",
-    "travis": "yarn run lint && yarn test",
-    "lint": "node_modules/.bin/tslint -c tslint.json src/**/*.ts test/**/*.ts",
+    "travis": "yarn lint && yarn test",
+    "lint": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --excludeNotExported --target es6 --hideGenerator --gaID UA-48569937-1 src",
-    "docs-publish": "yarn run docs && touch docs/.nojekyll && gh-pages -d docs -t",
-    "build": "rimraf lib && rimraf lib-umd && yarn run lint && tsc && yarn test && webpack && size-limit",
-    "build-prod": "yarn run build && yarn run docs-publish",
-    "prepublishOnly": "yarn run build-prod"
+    "docs-publish": "yarn docs && touch docs/.nojekyll && gh-pages -d docs -t",
+    "bundle": "webpack --mode production && size-limit",
+    "clean": "rimraf lib && rimraf lib-umd",
+    "compile": "tsc",
+    "build": "yarn lint && yarn compile && yarn test && yarn clean && yarn bundle",
+    "build-prod": "yarn build && yarn docs-publish",
+    "prepublishOnly": "yarn build-prod"
   },
   "author": "Benjamin Winterberg",
   "homepage": "http://winterbe.com",
@@ -36,16 +39,17 @@
     "node": ">=6.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^21.1.6",
-    "awesome-typescript-loader": "^3.4.0",
-    "gh-pages": "^1.1.0",
-    "jest": "^21.2.1",
+    "@types/jest": "^23.3.1",
+    "awesome-typescript-loader": "^5.2.0",
+    "gh-pages": "^1.2.0",
+    "jest": "^23.4.2",
     "rimraf": "^2.6.2",
-    "size-limit": "^0.13.2",
-    "tslint": "^5.8.0",
-    "typedoc": "^0.9.0",
-    "typescript": "^2.6.1",
-    "webpack": "^3.8.1"
+    "size-limit": "^0.19.0",
+    "tslint": "^5.11.0",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.9.2",
+    "webpack": "^4.16.3",
+    "webpack-cli": "^3.1.0"
   },
   "dependencies": {},
   "jest": {
@@ -58,7 +62,8 @@
     },
     "testMatch": [
       "**/test/*.ts"
-    ]
+    ],
+    "testURL": "http://localhost/"
   },
   "size-limit": [
     {

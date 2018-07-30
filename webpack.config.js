@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -17,15 +18,8 @@ module.exports = {
         extensions: ['.ts']
     },
     devtool: 'source-map',
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
-            sourceMap: true,
-            include: /\.min\.js$/,
-        })
-    ],
     module: {
-        loaders: [{
+        rules: [{
             test: /\.ts$/,
             loader: 'awesome-typescript-loader',
             exclude: /node_modules/,
@@ -33,5 +27,11 @@ module.exports = {
                 declaration: false
             }
         }]
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new UglifyJsPlugin({
+            include: /\.min\.js$/
+        })]
     }
 };
