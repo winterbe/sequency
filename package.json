@@ -36,7 +36,7 @@
     "LICENSE"
   ],
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.11"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
