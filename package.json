@@ -1,6 +1,6 @@
 {
   "name": "sequency",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/Sequence.js",
   "umd:main": "lib-umd/sequency.js",
@@ -36,7 +36,7 @@
     "LICENSE"
   ],
   "engines": {
-    "node": ">=8.11"
+    "node": ">=6.0.0"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
