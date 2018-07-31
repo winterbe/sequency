@@ -14,9 +14,9 @@
     "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --excludeNotExported --target es6 --hideGenerator --gaID UA-48569937-1 src",
     "docs-publish": "yarn docs && touch docs/.nojekyll && gh-pages -d docs -t",
     "bundle": "webpack --mode production && size-limit",
-    "clean": "rimraf lib && rimraf lib-umd",
+    "clean": "rimraf lib && rimraf lib-umd && rimraf docs && rimraf coverage",
     "compile": "tsc",
-    "build": "yarn lint && yarn compile && yarn test && yarn clean && yarn bundle",
+    "build": "yarn clean && yarn lint && yarn compile && yarn test && yarn bundle",
     "build-prod": "yarn build && yarn docs-publish",
     "prepublishOnly": "yarn build-prod"
   },
