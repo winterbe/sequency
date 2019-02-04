@@ -1,6 +1,6 @@
 {
   "name": "sequency",
-  "version": "0.19.2",
+  "version": "0.19.3",
   "description": "Functional sequences for processing iterable data in JavaScript",
   "main": "lib/sequency.node.min.js",
   "browser": "lib/sequency.browser.min.js",
