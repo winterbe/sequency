@@ -1,5 +1,4 @@
 import {emptySequence, sequenceOf} from "../src/Sequence";
-import single from "../src/single";
 
 describe("single", () => {
     it("should return single element", () => {

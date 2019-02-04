@@ -3,7 +3,7 @@
 *.iml
 
 lib
-lib-umd
+testOut
 docs
 coverage
 node_modules

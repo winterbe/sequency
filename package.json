@@ -2,21 +2,21 @@
   "name": "sequency",
   "version": "0.19.2",
   "description": "Functional sequences for processing iterable data in JavaScript",
-  "main": "lib/Sequence.js",
-  "umd:main": "lib-umd/sequency.js",
+  "main": "lib/sequency.node.min.js",
+  "browser": "lib/sequency.browser.min.js",
+  "module": "lib/sequency.min.mjs",
   "typings": "lib/Sequence.d.ts",
   "scripts": {
-    "test": "jest",
+    "test": "tsc -p tsconfig.test.json && jest",
     "watch": "jest --watch --notify",
     "coverage": "rimraf coverage && jest --coverage",
     "travis": "yarn lint && yarn test",
     "lint": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md --module commonjs --out docs --excludeNotExported --target es6 --hideGenerator --gaID UA-48569937-1 src",
     "docs-publish": "yarn docs && touch docs/.nojekyll && gh-pages -d docs -t",
-    "bundle": "webpack --mode production && size-limit",
-    "clean": "rimraf lib && rimraf lib-umd && rimraf docs && rimraf coverage",
-    "compile": "tsc",
-    "build": "yarn clean && yarn lint && yarn compile && yarn test && yarn bundle",
+    "bundle": "rollup -c",
+    "clean": "rimraf lib && rimraf testOut && rimraf docs && rimraf coverage",
+    "build": "yarn clean && yarn lint && yarn test && yarn bundle",
     "build-prod": "yarn build && yarn docs-publish",
     "prepublishOnly": "yarn build-prod"
   },
@@ -32,7 +32,6 @@
   },
   "files": [
     "lib",
-    "lib-umd",
     "LICENSE"
   ],
   "engines": {
@@ -44,33 +43,27 @@
     "gh-pages": "^1.2.0",
     "jest": "^23.4.2",
     "rimraf": "^2.6.2",
-    "size-limit": "^0.19.0",
     "tslint": "^5.11.0",
     "typedoc": "^0.11.1",
     "typescript": "^2.9.2",
-    "webpack": "^4.16.3",
-    "webpack-cli": "^3.1.0"
+    "@babel/core": "^7.2.2",
+    "rollup": "^1.0.1",
+    "rollup-plugin-babel": "^4.2.0",
+    "rollup-plugin-terser": "^4.0.1",
+    "rollup-plugin-typescript": "^1.0.0",
+    "@babel/preset-env": "^7.2.3",
+    "tslib": "^1.9.3"
   },
   "dependencies": {},
   "jest": {
     "moduleFileExtensions": [
-      "ts",
       "js"
     ],
-    "transform": {
-      "^.+\\.ts$": "<rootDir>/preprocessor.js"
-    },
     "testMatch": [
-      "**/test/*.ts"
+      "**/testOut/test/*.test.js"
     ],
     "testURL": "http://localhost/"
   },
-  "size-limit": [
-    {
-      "path": "lib-umd/sequency.min.js",
-      "limit": "9 KB"
-    }
-  ],
   "keywords": [
     "functional",
     "sequence",
