@@ -11,7 +11,7 @@ export class None {
      */
     none<T>(this: Sequence<T>, predicate?: (value: T) => boolean): boolean {
         if (predicate == null) {
-            return this.iterator.next().done;
+            return this.iterator.next()?.done ?? false;
         }
         for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
             if (predicate(item.value)) {
