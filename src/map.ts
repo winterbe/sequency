@@ -18,10 +18,10 @@ export class Map {
     /**
      * Transforms each element into another value by applying the given `transform` function and returns a new sequence.
      *
-     * @param {(T) => S} transform
-     * @returns {Sequence<S>}
+     * @param {(S) => T} transform
+     * @returns {Sequence<T>}
      */
-    map<S, T>(this: Sequence<T>, transform: (element: T) => S): Sequence<S> {
+    map<S, T>(this: Sequence<S>, transform: (element: S) => T): Sequence<T> {
         return createSequence(new MapIterator(transform, this.iterator));
     }
 
