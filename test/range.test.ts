@@ -11,9 +11,14 @@ describe("range", () => {
         expect(numbers).toEqual([0, .5, 1, 1.5, 2, 2.5, 3, 3.5, 4.0]);
     });
 
-    it("should create empty sequence", () => {
+    it("should include one element", () => {
         const numbers = range(0, 0).toArray();
-        expect(numbers).toEqual([]);
+        expect(numbers).toEqual([0]);
+    });
+
+    it("should include two element", () => {
+        const numbers = range(0, 1).toArray();
+        expect(numbers).toEqual([0, 1]);
     });
 
     it("should throw on invalid boundaries", () => {

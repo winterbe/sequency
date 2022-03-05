@@ -161,9 +161,6 @@ export function range(start: number, endInclusive: number, step: number = 1): Se
     if (start > endInclusive) {
         throw new Error(`start [${start}] must be lower then endInclusive [${endInclusive}]`);
     }
-    if (start === endInclusive) {
-        return emptySequence();
-    }
     let current = start;
     return generateSequence(() => {
         try {
