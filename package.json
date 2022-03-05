@@ -21,7 +21,7 @@
     "prepublishOnly": "yarn build-prod"
   },
   "author": "Benjamin Winterberg",
-  "homepage": "http://winterbe.com",
+  "homepage": "https://winterbe.com",
   "license": "MIT",
   "repository": {
     "type": "git",
