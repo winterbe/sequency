@@ -1,18 +1,20 @@
 import Sequence, {createSequence} from "./Sequence";
 
 class DistinctIterator<T> implements Iterator<T> {
-    private items: Array<T> = [];
+    private set: Set<T> = new Set();
 
     constructor(private readonly iterator: Iterator<T>) {
     }
 
     next(value?: any): IteratorResult<T> {
         for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
-            if (this.items.indexOf(item.value) < 0) {
-                this.items.push(item.value);
+            const sizeBeforeAdd = this.set.size;
+            this.set.add(item.value);
+            if (this.set.size > sizeBeforeAdd) {
                 return {done: false, value: item.value};
             }
         }
+        this.set.clear();
         return {done: true, value: undefined as any};
     }
 }

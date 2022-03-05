@@ -1,7 +1,7 @@
 import Sequence, {createSequence} from "./Sequence";
 
 class DistinctByIterator<T, K> implements Iterator<T> {
-    private keys: Array<K> = [];
+    private set: Set<K> = new Set();
 
     constructor(private readonly iterator: Iterator<T>,
                 private readonly selector: (item: T) => K) {
@@ -10,11 +10,13 @@ class DistinctByIterator<T, K> implements Iterator<T> {
     next(value?: any): IteratorResult<T> {
         for (let item = this.iterator.next(); !item.done; item = this.iterator.next()) {
             const key = this.selector(item.value);
-            if (this.keys.indexOf(key) < 0) {
-                this.keys.push(key);
+            const sizeBeforeAdd = this.set.size;
+            this.set.add(key);
+            if (this.set.size > sizeBeforeAdd) {
                 return {done: false, value: item.value};
             }
         }
+        this.set.clear();
         return {done: true, value: undefined as any};
     }
 }
