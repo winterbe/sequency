@@ -17,8 +17,7 @@
     "clean": "rimraf lib && rimraf lib-umd && rimraf docs && rimraf coverage",
     "compile": "tsc",
     "build": "yarn clean && yarn lint && yarn compile && yarn test && yarn bundle",
-    "build-prod": "yarn build && yarn docs-publish",
-    "prepublishOnly": "yarn build-prod"
+    "prepublishOnly": "yarn build"
   },
   "author": "Benjamin Winterberg",
   "homepage": "https://winterbe.com",
