@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>browsertest: lib-umd</title>
+    <script src="../lib-umd/sequency.min.js"></script>
+</head>
+<body>
+<script type="application/javascript">
+  try {
+      console.log("browsertest: lib-umd");
+      const result = Sequency.asSequence([1, 2, 3, 4, 5])
+          .filter(it => it % 2 === 1)
+          .map(it => `num:${it}`)
+          .toArray();
+      console.log(result);
+      window.document.body.textContent = "success";
+  } catch (e) {
+      console.error(e);
+      window.document.body.textContent = "failure";
+  }
+</script>
+</body>
+</html>
