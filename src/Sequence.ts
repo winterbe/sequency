@@ -72,6 +72,18 @@ import GeneratorIterator from "./GeneratorIterator";
 import GeneratorSeedIterator from "./GeneratorSeedIterator";
 
 /**
+ * A Sequence provides a fluent functional API consisting
+ * of various intermediate and terminal operations for processing the iterated data.
+ * The operations are evaluated lazily to avoid examining all the input data
+ * when it's not necessary. Sequences can be iterated only once.
+ */
+export interface Sequence<T> extends SequenceOperators<T> {
+    readonly iterator: Iterator<T>;
+}
+
+export default Sequence;
+
+/**
  * @hidden
  */
 export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, AssociateBy<T>, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
@@ -79,16 +91,6 @@ export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, A
     ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
     Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
     Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip {
-}
-
-/**
- * A Sequence provides a fluent functional API consisting
- * of various intermediate and terminal operations for processing the iterated data.
- * The operations are evaluated lazily to avoid examining all of the input data
- * when it's not necessary. Sequences can be iterated only once.
- */
-export default interface Sequence<T> extends SequenceOperators<T> {
-    readonly iterator: Iterator<T>;
 }
 
 class SequenceImpl<T> {
