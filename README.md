@@ -7,14 +7,14 @@
 ---
 
 <p align="center">
-<strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a>, <a href="https://twitter.com/winterbe_">follow on Twitter</a> or <a href="https://www.paypal.me/winterbe">donate</a> to support my work! Thanks. ★★★</strong>
+<strong>★★★ Like this project? <a href="https://github.com/winterbe/sequency/stargazers">Leave a star</a> and <a href="https://twitter.com/winterbe_">follow on Twitter</a>! Thanks. ★★★</strong>
 </p>
 
 ## About Sequency
 
 Sequency is a lightweight (**5 KB minified**), intensely tested (**200+ tests, 99% coverage**), type-safe functional programming library for processing iterable data such as arrays, sets and maps. It's written in TypeScript, compiles to ES5-compatible JavaScript and works in all current browsers and Node applications. The API is inspired by [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/) from the programming language [Kotlin](https://kotlinlang.org/).
 
-> Not convinced? [Try Sequency](https://npm.runkit.com/sequency) right in your browser.
+> [Try Sequency](https://npm.runkit.com/sequency) right in your browser.
 
 ## Getting started
 
@@ -58,9 +58,9 @@ Each `Sequence` provides a fluent functional API consisting of intermediate and 
 
 Sequences are **lazily evaluated** to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
 
-## [API documentation](https://winterbe.github.io/sequency/interfaces/_sequence_.sequence.html)
+## [API documentation](https://winterbe.github.io/sequency/interfaces/Sequence.html)
 
-Sequency is fully documented via inline JSDoc comments. [The docs are also available online](https://winterbe.github.io/sequency/interfaces/_sequence_.sequence.html). When using an IDE like Intellij IDEA or Webstorm the docs are available inline right inside your editor.
+Sequency is fully documented via inline JSDoc comments. [The docs are also available online](https://winterbe.github.io/sequency/interfaces/Sequence.html). When using an IDE like Intellij IDEA or Webstorm the docs are available inline right inside your editor.
 
 ## Why Sequency?
 
@@ -68,4 +68,4 @@ I've built Sequency because I'm using Kotlin for server-side code but for some r
 
 ## License
 
-MIT © [Benjamin Winterberg](https://twitter.com/winterbe_)
+MIT © [winterbe](https://twitter.com/winterbe_)
