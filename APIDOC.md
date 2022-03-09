@@ -7,27 +7,45 @@ Download the [latest release](https://github.com/winterbe/sequency/releases) fro
 ```bash
 npm install sequency
 ```
+or
+```bash
+yarn add sequency
+```
 
-Or [try Sequency](https://npm.runkit.com/sequency) right in your browser.
+### How Sequency works
 
-### How sequences works
+Sequency is centered around the interface [Sequence](https://winterbe.github.io/sequency/interfaces/Sequence.html) to process any kind of iterable data such as arrays, maps and sets. 
 
-Sequency is centered around a single class `Sequence` to process any kind of iterable data. The API is inspired by Kotlin [Sequences](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.sequences/-sequence/index.html). 
+The interface `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions return a new sequence, thus enabling method chaining while terminal functions return an arbitrary result. You can explore all available `Sequence` operations by navigating to the [Sequence](https://winterbe.github.io/sequency/interfaces/Sequence.html) interface.
 
-Each `Sequence` provides a fluent functional API consisting of intermediate and terminal operations. Intermediate functions return a new sequence, thus enabling method chaining while terminal functions return an arbitrary result. You can explore all available `Sequence` operations on this website by using the site navigation to the right.
+### Creating Sequences from your data
 
 Sequences can be created with one of the following functions:
 
 ```js
-import {sequenceOf, asSequence, emptySequence} from 'sequency';
+import {sequenceOf, asSequence, emptySequence, generateSequence} from "sequency";
 ```
 
 - `sequenceOf` accepts one or many values and returns a new sequence.
 - `asSequence` accepts an iterable (e.g. an array, set or map) and returns a new sequence.
 - `emptySequence` returns a new empty sequence.
+- `generateSequence` creates a sequence from the results of the given generator function.
 
-Sequences are lazily evaluated to avoid examining all of the input data when it's not necessary. Sequences always perform the minimal amount of operations to gain results. E.g. in a `filter - map - find` sequence both `map` and `find` are executed just one time before returning the single result.
+### Code sample
+
+```js
+import {asSequence} from "sequency";
+
+const numbers = [1, 2, 3, 4, 5];
+
+const result = asSequence(numbers)
+  .filter(num => num > 2)
+  .reverse()
+  .toArray()
+
+// result: [5, 4, 3]
+```
 
 ### License
 
-MIT © [Benjamin Winterberg](https://twitter.com/winterbe_)
+MIT © [winterbe](https://twitter.com/winterbe_)
