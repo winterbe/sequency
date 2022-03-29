@@ -1,3 +1,4 @@
+import { asSelector } from "./asSelector";
 import ComparatorFactory from "./ComparatorFactory";
 import Comparator from "./Comparator";
 
@@ -53,12 +54,6 @@ function compareByDescending<T>(keyOrSelector: any): Comparator<T> {
     return compare<T>(
         (a: T, b: T) => naturalCompare(selector(b), selector(a))
     );
-}
-
-function asSelector<T>(keyOrSelector: (item: T) => any | string): (item: T) => any {
-    return typeof keyOrSelector === "function"
-        ? keyOrSelector
-        : (item: T) => (item as any)[keyOrSelector as string];
 }
 
 function naturalCompare<T>(a: T, b: T): number {
