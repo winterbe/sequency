@@ -54,8 +54,8 @@ import {Reverse} from "./reverse";
 import {Single} from "./single";
 import {SingleOrNull} from "./singleOrNull";
 import {Sorted} from "./sorted";
-import {SortedBy} from "./sortedBy";
-import {SortedByDescending} from "./sortedByDescending";
+import {SortedBy, SortedByOperator} from "./sortedBy";
+import {SortedByDescending, SortedByDescendingOperator} from "./sortedByDescending";
 import {SortedDescending} from "./sortedDescending";
 import {SortedWith} from "./sortedWith";
 import {Sum} from "./sum";
@@ -89,8 +89,8 @@ export default Sequence;
 export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, AssociateBy<T>, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
     DropWhile, ElementAt, ElementAtOrElse, ElementAtOrNull, Filter, FilterIndexed, FilterNot, FilterNotNull, First, FirstOrNull, FlatMap, Flatten, Fold, FoldIndexed,
     ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
-    Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
-    Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip {
+    Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedByOperator, SortedByDescendingOperator, SortedDescending,
+    SortedWith, Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip {
 }
 
 class SequenceImpl<T> {
