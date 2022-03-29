@@ -174,3 +174,6 @@ export function range(start: number, endInclusive: number, step: number = 1): Se
         }
     });
 }
+
+export { default as Comparator } from "./Comparator";
+export { default as ComparatorFactory } from "./ComparatorFactory";
