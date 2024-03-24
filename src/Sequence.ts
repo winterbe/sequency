@@ -1,73 +1,73 @@
-import {All} from "./all";
-import {Any} from "./any";
-import {AsIterable} from "./asIterable";
-import {Associate} from "./associate";
-import {AssociateBy} from "./associateBy";
-import {Average} from "./average";
-import {Chunk} from "./chunk";
-import {Contains} from "./contains";
-import {Count} from "./count";
-import {Distinct} from "./distinct";
-import {DistinctBy} from "./distinctBy";
-import {Drop} from "./drop";
-import {DropWhile} from "./dropWhile";
-import {ElementAt} from "./elementAt";
-import {ElementAtOrElse} from "./elementAtOrElse";
-import {ElementAtOrNull} from "./elementAtOrNull";
-import {Filter} from "./filter";
-import {FilterIndexed} from "./filterIndexed";
-import {FilterNot} from "./filterNot";
-import {FilterNotNull} from "./filterNotNull";
-import {First} from "./first";
-import {FirstOrNull} from "./firstOrNull";
-import {FlatMap} from "./flatMap";
-import {Flatten} from "./flatten";
-import {Fold} from "./fold";
-import {FoldIndexed} from "./foldIndexed";
-import {ForEach} from "./forEach";
-import {ForEachIndexed} from "./forEachIndexed";
-import {GroupBy} from "./groupBy";
-import {IndexOf} from "./indexOf";
-import {IndexOfFirst} from "./indexOfFirst";
-import {IndexOfLast} from "./indexOfLast";
-import {JoinToString} from "./joinToString";
-import {Last} from "./last";
-import {LastOrNull} from "./lastOrNull";
-import {Map} from "./map";
-import {MapIndexed} from "./mapIndexed";
-import {MapNotNull} from "./mapNotNull";
-import {Max} from "./max";
-import {MaxBy} from "./maxBy";
-import {MaxWith} from "./maxWith";
-import {Merge} from "./merge";
-import {Min} from "./min";
-import {MinBy} from "./minBy";
-import {Minus} from "./minus";
-import {MinWith} from "./minWith";
-import {None} from "./none";
-import {OnEach} from "./onEach";
-import {Partition} from "./partition";
-import {Plus} from "./plus";
-import {Reduce} from "./reduce";
-import {ReduceIndexed} from "./reduceIndexed";
-import {Reverse} from "./reverse";
-import {Single} from "./single";
-import {SingleOrNull} from "./singleOrNull";
-import {Sorted} from "./sorted";
-import {SortedBy} from "./sortedBy";
-import {SortedByDescending} from "./sortedByDescending";
-import {SortedDescending} from "./sortedDescending";
-import {SortedWith} from "./sortedWith";
-import {Sum} from "./sum";
-import {SumBy} from "./sumBy";
-import {Take} from "./take";
-import {TakeWhile} from "./takeWhile";
-import {ToArray} from "./toArray";
-import {ToMap} from "./toMap";
-import {ToSet} from "./toSet";
-import {Unzip} from "./unzip";
-import {WithIndex} from "./withIndex";
-import {Zip} from "./zip";
+import { All } from "./all";
+import { Any } from "./any";
+import { AsIterable } from "./asIterable";
+import { Associate } from "./associate";
+import { AssociateBy } from "./associateBy";
+import { Average } from "./average";
+import { Chunk } from "./chunk";
+import { Contains } from "./contains";
+import { Count } from "./count";
+import { Distinct } from "./distinct";
+import { DistinctBy } from "./distinctBy";
+import { Drop } from "./drop";
+import { DropWhile } from "./dropWhile";
+import { ElementAt } from "./elementAt";
+import { ElementAtOrElse } from "./elementAtOrElse";
+import { ElementAtOrNull } from "./elementAtOrNull";
+import { Filter } from "./filter";
+import { FilterIndexed } from "./filterIndexed";
+import { FilterNot } from "./filterNot";
+import { FilterNotNull } from "./filterNotNull";
+import { First } from "./first";
+import { FirstOrNull } from "./firstOrNull";
+import { FlatMap } from "./flatMap";
+import { Flatten } from "./flatten";
+import { Fold } from "./fold";
+import { FoldIndexed } from "./foldIndexed";
+import { ForEach } from "./forEach";
+import { ForEachIndexed } from "./forEachIndexed";
+import { GroupBy } from "./groupBy";
+import { IndexOf } from "./indexOf";
+import { IndexOfFirst } from "./indexOfFirst";
+import { IndexOfLast } from "./indexOfLast";
+import { JoinToString } from "./joinToString";
+import { Last } from "./last";
+import { LastOrNull } from "./lastOrNull";
+import { Map } from "./map";
+import { MapIndexed } from "./mapIndexed";
+import { MapNotNull } from "./mapNotNull";
+import { Max } from "./max";
+import { MaxBy } from "./maxBy";
+import { MaxWith } from "./maxWith";
+import { Merge } from "./merge";
+import { Min } from "./min";
+import { MinBy } from "./minBy";
+import { Minus } from "./minus";
+import { MinWith } from "./minWith";
+import { None } from "./none";
+import { OnEach } from "./onEach";
+import { Partition } from "./partition";
+import { Plus } from "./plus";
+import { Reduce } from "./reduce";
+import { ReduceIndexed } from "./reduceIndexed";
+import { Reverse } from "./reverse";
+import { Single } from "./single";
+import { SingleOrNull } from "./singleOrNull";
+import { Sorted } from "./sorted";
+import { SortedBy } from "./sortedBy";
+import { SortedByDescending } from "./sortedByDescending";
+import { SortedDescending } from "./sortedDescending";
+import { SortedWith } from "./sortedWith";
+import { Sum } from "./sum";
+import { SumBy } from "./sumBy";
+import { Take } from "./take";
+import { TakeWhile } from "./takeWhile";
+import { ToArray } from "./toArray";
+import { ToMap } from "./toMap";
+import { ToSet } from "./toSet";
+import { Unzip } from "./unzip";
+import { WithIndex } from "./withIndex";
+import { Zip } from "./zip";
 import GeneratorIterator from "./GeneratorIterator";
 import GeneratorSeedIterator from "./GeneratorSeedIterator";
 
@@ -173,4 +173,36 @@ export function range(start: number, endInclusive: number, step: number = 1): Se
             current += step;
         }
     });
+}
+
+export function asKeysSequence<K>(keyedIterable: {
+    keys(): IterableIterator<K>;
+}): Sequence<K>;
+export function asKeysSequence<K extends PropertyKey>(obj: Record<K, any>): Sequence<K>;
+export function asKeysSequence<K>(a: any): Sequence<K> {
+    const gen = typeof a.keys === "function" ? a.keys.bind(a) : function* () {
+        for (const key in a) {
+            if (a.hasOwnProperty(key)) {
+                yield key as K;
+            }
+        }
+    };
+
+    return asSequence(gen());
+}
+
+export function asValuesSequence<V>(keyedIterable: {
+    values(): IterableIterator<V>;
+}): Sequence<V>;
+export function asValuesSequence<V>(obj: Record<any, V>): Sequence<V>
+export function asValuesSequence<V>(a: any): Sequence<V> {
+    const gen = typeof a.values === "function" ? a.values.bind(a) : function* () {
+        for (const key in a) {
+            if (a.hasOwnProperty(key)) {
+                yield a[key];
+            }
+        }
+    };
+
+    return asSequence(gen());
 }
