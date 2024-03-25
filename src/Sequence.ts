@@ -176,10 +176,18 @@ export function range(start: number, endInclusive: number, step: number = 1): Se
 }
 
 export function asKeysSequence<K>(keyedIterable: {
-    keys(): IterableIterator<K>;
+    keys(): Iterable<K>;
 }): Sequence<K>;
 export function asKeysSequence<K extends PropertyKey>(obj: Record<K, any>): Sequence<K>;
 export function asKeysSequence<K>(a: any): Sequence<K> {
+    if (typeof a !== "object") {
+        throw new TypeError("Cannot create keys sequence for non-object input");
+    }
+
+    if (a === null) {
+        throw new TypeError("Cannot create keys sequence for input: null");
+    }
+
     const gen = typeof a.keys === "function" ? a.keys.bind(a) : function* () {
         for (const key in a) {
             if (a.hasOwnProperty(key)) {
@@ -192,10 +200,18 @@ export function asKeysSequence<K>(a: any): Sequence<K> {
 }
 
 export function asValuesSequence<V>(keyedIterable: {
-    values(): IterableIterator<V>;
+    values(): Iterable<V>;
 }): Sequence<V>;
 export function asValuesSequence<V>(obj: Record<any, V>): Sequence<V>
 export function asValuesSequence<V>(a: any): Sequence<V> {
+    if (typeof a !== "object") {
+        throw new TypeError("Cannot create values sequence for non-object input");
+    }
+
+    if (a === null) {
+        throw new TypeError("Cannot create values sequence for input: null");
+    }
+
     const gen = typeof a.values === "function" ? a.values.bind(a) : function* () {
         for (const key in a) {
             if (a.hasOwnProperty(key)) {
