@@ -10,7 +10,7 @@
     "watch": "jest --watch --notify",
     "coverage": "rimraf coverage && jest --coverage",
     "travis": "yarn lint && yarn test",
-    "lint": "node_modules/.bin/tslint -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
+    "lint": "node_modules/.bin/tslint --fix -c tslint.json 'src/**/*.ts' 'test/**/*.ts'",
     "docs": "rimraf docs && typedoc --name Sequency --readme APIDOC.md -out docs --hideGenerator src/Sequence.ts",
     "docs-publish": "yarn docs && touch docs/.nojekyll && gh-pages -d docs -t",
     "bundle": "webpack --mode production && size-limit",
