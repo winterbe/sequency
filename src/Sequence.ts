@@ -30,6 +30,8 @@ import {GroupBy} from "./groupBy";
 import {IndexOf} from "./indexOf";
 import {IndexOfFirst} from "./indexOfFirst";
 import {IndexOfLast} from "./indexOfLast";
+import {IsEmpty} from "./isEmpty";
+import {IsNotEmpty} from "./isNotEmpty";
 import {JoinToString} from "./joinToString";
 import {Last} from "./last";
 import {LastOrNull} from "./lastOrNull";
@@ -88,7 +90,7 @@ export default Sequence;
  */
 export interface SequenceOperators<T> extends All, Any, AsIterable, Associate, AssociateBy<T>, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
     DropWhile, ElementAt, ElementAtOrElse, ElementAtOrNull, Filter, FilterIndexed, FilterNot, FilterNotNull, First, FirstOrNull, FlatMap, Flatten, Fold, FoldIndexed,
-    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
+    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, IsEmpty, IsNotEmpty, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
     Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
     Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip {
 }
@@ -100,7 +102,7 @@ class SequenceImpl<T> {
 
 applyMixins(SequenceImpl, [All, Any, AsIterable, Associate, AssociateBy, Average, Chunk, Contains, Count, Distinct, DistinctBy, Drop,
     DropWhile, ElementAt, ElementAtOrElse, ElementAtOrNull, Filter, FilterIndexed, FilterNot, FilterNotNull, First, FirstOrNull, FlatMap, Flatten, Fold, FoldIndexed,
-    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
+    ForEach, ForEachIndexed, GroupBy, IndexOf, IndexOfFirst, IndexOfLast, IsEmpty, IsNotEmpty, JoinToString, Last, LastOrNull, Map, MapIndexed, MapNotNull, Max, MaxBy, MaxWith, Merge, Min, MinBy,
     Minus, MinWith, None, OnEach, Partition, Plus, Reduce, ReduceIndexed, Reverse, Single, SingleOrNull, Sorted, SortedBy, SortedByDescending, SortedDescending, SortedWith,
     Sum, SumBy, Take, TakeWhile, ToArray, ToMap, ToSet, Unzip, WithIndex, Zip]);
 
