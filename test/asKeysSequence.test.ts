@@ -15,7 +15,7 @@ describe("asKeysSequence", () => {
         const array = asKeysSequence(new Map([
             ["a", 1],
             ["b", 2],
-            ["c", 3],
+            ["c", 3]
         ] as const))
             .toArray();
 
@@ -29,7 +29,7 @@ describe("asKeysSequence", () => {
         const array = asKeysSequence(new Set([
             "a",
             "b",
-            "c",
+            "c"
         ] as const))
             .toArray();
 
@@ -43,7 +43,7 @@ describe("asKeysSequence", () => {
         const array = asKeysSequence([
             "a",
             "b",
-            "c",
+            "c"
         ] as const)
             .toArray();
 
@@ -70,7 +70,7 @@ describe("asKeysSequence", () => {
         { input: NaN },
         { input: Infinity },
         { input: () => 42 },
-        { input: function* () { yield 42 } },
+        { input: function* () { yield 42; } }
     ])("should throw understandable error message if input is non-object: %p", ({ input }) => {
         expect(
             () => asKeysSequence(input as any)

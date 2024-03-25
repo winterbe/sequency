@@ -202,7 +202,7 @@ export function asKeysSequence<K>(a: any): Sequence<K> {
 export function asValuesSequence<V>(keyedIterable: {
     values(): Iterable<V>;
 }): Sequence<V>;
-export function asValuesSequence<V>(obj: Record<any, V>): Sequence<V>
+export function asValuesSequence<V>(obj: Record<any, V>): Sequence<V>;
 export function asValuesSequence<V>(a: any): Sequence<V> {
     if (typeof a !== "object") {
         throw new TypeError("Cannot create values sequence for non-object input");
